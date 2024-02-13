@@ -3,7 +3,7 @@ import pandas as pd
 from datetime import datetime, timedelta
 from pymongo import MongoClient
 import random
-
+from bson.objectid import ObjectId
 
 
 # Get today's date
@@ -33,7 +33,7 @@ micro = False
 df = pd.read_csv('users.csv')
 user_ids = []
 today = datetime.now()
-dates = [(today - timedelta(days=i)).isoformat() for i in range(30)]
+dates = [(today - timedelta(days=i)) for i in range(30)]
 habits = ['exercise', 'sleep', 'water', 'food', 'journal', 'meditation', 'reading', 'coding', 'social', 'work', 'study']
 cookies = df["cookie"]
 workout_values =    value = {
@@ -119,27 +119,39 @@ def upload_wokrout_data(user_ids, values):
     workout_types = ["pull", "push", "legs", "cardio"]
     for uid in user_ids:
         for type in workout_types:
-            now = datetime.now()
-            
-            # Generate a random number of seconds between 0 and the number of seconds in 30 days
-            random_seconds = random.randint(0, 30 * 24 * 60 * 60)
-            # Subtract that many seconds from the current date and time
-            random_date = now - timedelta(seconds=random_seconds)
-            # Convert the date and time to ISO format
-            random_date_iso = random_date.isoformat()
-            temp = {
-                "uid": uid,
-                "uploadDateAndTime": random_date_iso,
-                "type": type,
-                "data": []
-            }
+            for date in dates:
+                now = datetime.now()
+                # Generate a random number of seconds between 0 and the number of seconds in 30 days
+                random_seconds = random.randint(0, 30 * 24 * 60 * 60)
+                # Subtract that many seconds from the current date and time
+                random_date = now - timedelta(seconds=random_seconds)
+                # Convert the date and time to ISO format
+                # random_date_iso = random_date.isoformat()
+                temp = {
+                    "uid": uid,
+                    "uploadDateAndTime": random_date,
+                    "type": type,
+                    "data": []
+                }
 
-            for exercise in values[type]:
-                temp["data"].append(create_exercise_data(exercise, type))
-            all_workout_data.append(temp)
+                for exercise in values[type]:
+                    temp["data"].append(create_exercise_data(exercise, type))
+                all_workout_data.append(temp)
             
     return collection.insert_many(all_workout_data).inserted_ids
 
-# allWorkoutDataIDs = upload_wokrout_data(user_ids, workout_values)
-# df = pd.DataFrame(allWorkoutDataIDs)
-# df.to_csv("allWorkoutDataIDs.csv", index=False)
+allWorkoutDataIDs = upload_wokrout_data(user_ids, workout_values)
+df = pd.DataFrame(allWorkoutDataIDs)
+df.to_csv("all_workout_data_ids.csv", index=False)
+
+
+
+def delete_by_id(collection, ids):
+    for id in ids:
+        collection.delete_one({"_id": ObjectId(id)})
+
+# insert_ids = pd.read_csv("all_workout_data_ids.csv")
+# first_column = insert_ids.iloc[:, 0]
+# first_column_list = first_column.tolist()
+
+# delete_by_id(db["coll_workout_data"], first_column_list)
