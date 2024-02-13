@@ -1,6 +1,6 @@
 import jwt
 import pandas as pd
-import datetime
+from datetime import datetime, timedelta
 from pymongo import MongoClient
 import random
 
@@ -32,10 +32,16 @@ db = client['habit_tracker']
 micro = False
 df = pd.read_csv('users.csv')
 user_ids = []
-today = datetime.datetime.now()
-dates = [(today - datetime.timedelta(days=i)).isoformat() for i in range(30)]
+today = datetime.now()
+dates = [(today - timedelta(days=i)).isoformat() for i in range(30)]
 habits = ['exercise', 'sleep', 'water', 'food', 'journal', 'meditation', 'reading', 'coding', 'social', 'work', 'study']
 cookies = df["cookie"]
+workout_values =    value = {
+    "cardio": ["running", "cycling", "swimming"],
+    "pull":["pull-ups", "chin-ups", "barbell rows", "barbel curl", "deadlifts"],
+    "push":["push-ups", "bench press", "dumbbell press", "dips"],
+    "legs": ["squats", "lunges", "calf raises", "deadlifts"]
+    };
 
 #SETTING USER IDS
 for i, cookie in enumerate(cookies):
@@ -78,15 +84,9 @@ def upload_user_logs_data(user_ids, habits, dates):
 # df.to_csv("log_insert_ids.csv", index=False)
 
 
-def upload_user_workout_types_data(user_ids):
+def upload_user_workout_types_data(user_ids, value):
     workout_types = ["pull", "push", "legs", "cardio"]
-    value = {
-    "cardio": ["running", "cycling", "swimming"],
-    "pull":["pull-ups", "chin-ups", "barbell rows", "barbel curl", "deadlifts"],
-    "push":["push-ups", "bench press", "dumbbell press", "dips"],
-    "legs": ["squats", "lunges", "calf raises", "deadlifts"]
-    }
-    collection = db["coll_workout_types"]
+    collection = db["coll_user_workout_types"]
     all_workout_types = []
     for uid in user_ids:
         data = {key: value[f"{key}"] for key in workout_types}
@@ -94,7 +94,52 @@ def upload_user_workout_types_data(user_ids):
         all_workout_types.append(data)
     return collection.insert_many(all_workout_types).inserted_ids
 
-# allWorkoutTypeIds = upload_user_workout_types_data(user_ids)
+# allWorkoutTypeIds = upload_user_workout_types_data(user_ids, workout_values)
 # df = pd.DataFrame(allWorkoutTypeIds)
 # df.to_csv("workout_type_insert_ids.csv", index=False)
 
+def create_set(type):
+    value = random.randint(1, 100)
+    reps = random.randint(1, 20)
+    if type == "cardio":
+        return {"time": value, "reps": reps}
+    return {"weight": value, "reps": reps}    
+
+def create_exercise_data(name, type):
+    no_of_sets = random.randint(3, 6)
+    exercise = {"name": name, "sets": []}
+    for set in range(1, no_of_sets + 1):
+        exercise["sets"].append(create_set(type))
+    return exercise
+
+
+def upload_wokrout_data(user_ids, values):
+    collection = db["coll_workout_data"]
+    all_workout_data = []
+    workout_types = ["pull", "push", "legs", "cardio"]
+    for uid in user_ids:
+        for type in workout_types:
+            now = datetime.now()
+            
+            # Generate a random number of seconds between 0 and the number of seconds in 30 days
+            random_seconds = random.randint(0, 30 * 24 * 60 * 60)
+            # Subtract that many seconds from the current date and time
+            random_date = now - timedelta(seconds=random_seconds)
+            # Convert the date and time to ISO format
+            random_date_iso = random_date.isoformat()
+            temp = {
+                "uid": uid,
+                "uploadDateAndTime": random_date_iso,
+                "type": type,
+                "data": []
+            }
+
+            for exercise in values[type]:
+                temp["data"].append(create_exercise_data(exercise, type))
+            all_workout_data.append(temp)
+            
+    return collection.insert_many(all_workout_data).inserted_ids
+
+# allWorkoutDataIDs = upload_wokrout_data(user_ids, workout_values)
+# df = pd.DataFrame(allWorkoutDataIDs)
+# df.to_csv("allWorkoutDataIDs.csv", index=False)
