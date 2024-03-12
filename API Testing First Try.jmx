@@ -21,7 +21,7 @@
         <stringProp name="variableNames">email, password, firstName, lastName, cookie</stringProp>
       </CSVDataSet>
       <hashTree/>
-      <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+      <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor">
         <stringProp name="cacheKey">true</stringProp>
         <stringProp name="filename"></stringProp>
         <stringProp name="parameters"></stringProp>
@@ -33,7 +33,7 @@ log.info(&quot;Cookie added: &quot; + cookieValue.toString())
 
 // Initialize the variables
 String cookieName = &quot;access_token&quot;; // The name of your cookie
-String domain = &quot;localhost&quot;; // The domain where the cookie is valid
+String domain = &quot;172.167.242.26&quot;; // The domain where the cookie is valid
 String path = &quot;/&quot;; // The path where the cookie is valid
 long maxAge = 60 * 60 * 24;  // 1 day in seconds
 boolean secure = false; // Whether or not this cookie requires a secure connection
@@ -71,7 +71,7 @@ cookieManager.add(newCookie);</stringProp>
         <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
       </CookieManager>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Test Thread Group">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Test Thread Group" enabled="true">
         <intProp name="ThreadGroup.num_threads">5</intProp>
         <intProp name="ThreadGroup.ramp_time">1</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -83,7 +83,7 @@ cookieManager.add(newCookie);</stringProp>
       </ThreadGroup>
       <hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="auth/register" enabled="false">
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
           <stringProp name="HTTPSampler.port">3000</stringProp>
           <stringProp name="HTTPSampler.path">/auth/register</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -117,7 +117,7 @@ cookieManager.add(newCookie);</stringProp>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="auth/login" enabled="false">
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
           <stringProp name="HTTPSampler.port">3000</stringProp>
           <stringProp name="HTTPSampler.path">/auth/login</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -158,7 +158,7 @@ cookieManager.add(newCookie);</stringProp>
           </RegexExtractor>
           <hashTree/>
         </hashTree>
-        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="GET Request Throughput Controller">
+        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="GET Request Throughput Controller" enabled="true">
           <intProp name="ThroughputController.style">1</intProp>
           <boolProp name="ThroughputController.perThread">false</boolProp>
           <intProp name="ThroughputController.maxThroughput">1</intProp>
@@ -169,14 +169,14 @@ cookieManager.add(newCookie);</stringProp>
           </FloatProperty>
         </ThroughputController>
         <hashTree>
-          <RandomController guiclass="RandomControlGui" testclass="RandomController" testname="Random Controller">
+          <RandomController guiclass="RandomControlGui" testclass="RandomController" testname="Random Controller" enabled="true">
             <intProp name="InterleaveControl.style">1</intProp>
           </RandomController>
           <hashTree>
-            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Logs Simple Controller"/>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Logs Simple Controller" enabled="true"/>
             <hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/get-log-ids">
-                <stringProp name="HTTPSampler.domain">localhost</stringProp>
+                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
                 <stringProp name="HTTPSampler.path">/logs/get-log-ids</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -190,24 +190,40 @@ cookieManager.add(newCookie);</stringProp>
               <hashTree>
                 <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor for Ids">
                   <stringProp name="JSONPostProcessor.referenceNames">ID</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$..id</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$[*].id</stringProp>
                   <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
                 </JSONPostProcessor>
                 <hashTree/>
-                <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random ID">
-                  <stringProp name="maximumValue">${ID_matchNr}</stringProp>
-                  <stringProp name="minimumValue">1</stringProp>
-                  <stringProp name="outputFormat"></stringProp>
-                  <boolProp name="perThread">true</boolProp>
-                  <stringProp name="randomSeed"></stringProp>
-                  <stringProp name="variableName">randomID</stringProp>
-                </RandomVariableConfig>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="script">import java.util.Random
+
+// Create a new Random object
+Random random = new Random()
+
+// Generate a random number between a min and max
+int min = 1
+int max = ${ID_matchNr}
+int randomNumber = random.nextInt(max - min + 1) + min
+
+// Store the random number in a JMeter variable
+vars.put(&quot;randomNumber&quot;, randomNumber.toString())
+
+// Print the random number to the console
+log.info(&quot;Random number: &quot; + randomNumber)
+
+def randomIDValue = vars.get(&quot;ID_&quot; + randomNumber);
+vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                </JSR223PostProcessor>
                 <hashTree/>
               </hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/get-log-by-id/:id">
-                <stringProp name="HTTPSampler.domain">localhost</stringProp>
+                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
-                <stringProp name="HTTPSampler.path"> /logs/get-log-by-id/${ID_${randomID}}</stringProp>
+                <stringProp name="HTTPSampler.path">/logs/get-log-by-id/${randomIDValue}</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
                 <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -221,9 +237,9 @@ cookieManager.add(newCookie);</stringProp>
             <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Exercise Simple Controller"/>
             <hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /exercise/get-workout-ids/pull">
-                <stringProp name="HTTPSampler.domain">localhost</stringProp>
+                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
-                <stringProp name="HTTPSampler.path"> /exercise/get-workout-ids/pull</stringProp>
+                <stringProp name="HTTPSampler.path">/exercise/get-workout-ids/pull</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
                 <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -235,24 +251,40 @@ cookieManager.add(newCookie);</stringProp>
               <hashTree>
                 <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor for Ids">
                   <stringProp name="JSONPostProcessor.referenceNames">ID</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$..id</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$[*].id</stringProp>
                   <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
                 </JSONPostProcessor>
                 <hashTree/>
-                <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random ID">
-                  <stringProp name="maximumValue">${ID_matchNr}</stringProp>
-                  <stringProp name="minimumValue">1</stringProp>
-                  <stringProp name="outputFormat"></stringProp>
-                  <boolProp name="perThread">true</boolProp>
-                  <stringProp name="randomSeed"></stringProp>
-                  <stringProp name="variableName">randomID</stringProp>
-                </RandomVariableConfig>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="script">import java.util.Random
+
+// Create a new Random object
+Random random = new Random()
+
+// Generate a random number between a min and max
+int min = 1
+int max = ${ID_matchNr}
+int randomNumber = random.nextInt(max - min + 1) + min
+
+// Store the random number in a JMeter variable
+vars.put(&quot;randomNumber&quot;, randomNumber.toString())
+
+// Print the random number to the console
+log.info(&quot;Random number: &quot; + randomNumber)
+
+def randomIDValue = vars.get(&quot;ID_&quot; + randomNumber);
+vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                </JSR223PostProcessor>
                 <hashTree/>
               </hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/get-workout-by-id/:id">
-                <stringProp name="HTTPSampler.domain">localhost</stringProp>
+                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
-                <stringProp name="HTTPSampler.path">/exercise/get-workout-by-id/${ID_${randomID}}</stringProp>
+                <stringProp name="HTTPSampler.path">/exercise/get-workout-by-id/${randomIDValue}</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
                 <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -264,7 +296,7 @@ cookieManager.add(newCookie);</stringProp>
               <hashTree/>
             </hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/fetch-all-habits">
-              <stringProp name="HTTPSampler.domain">localhost</stringProp>
+              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/logs/fetch-all-habits</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -277,9 +309,9 @@ cookieManager.add(newCookie);</stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /logs/get-daily-log">
-              <stringProp name="HTTPSampler.domain">localhost</stringProp>
+              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
-              <stringProp name="HTTPSampler.path"> /logs/get-daily-log</stringProp>
+              <stringProp name="HTTPSampler.path">/logs/get-daily-log</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -290,7 +322,7 @@ cookieManager.add(newCookie);</stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/dashboard/get-user-report-data">
-              <stringProp name="HTTPSampler.domain">localhost</stringProp>
+              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/dashboard/get-user-report-data</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -312,9 +344,9 @@ cookieManager.add(newCookie);</stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /dashboard/get-workout-historic-data">
-              <stringProp name="HTTPSampler.domain">localhost</stringProp>
+              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
-              <stringProp name="HTTPSampler.path"> /dashboard/get-workout-historic-data</stringProp>
+              <stringProp name="HTTPSampler.path">/dashboard/get-workout-historic-data</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <stringProp name="HTTPSampler.method">POST</stringProp>
               <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -334,9 +366,9 @@ cookieManager.add(newCookie);</stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /notifications/get-notifications">
-              <stringProp name="HTTPSampler.domain">localhost</stringProp>
+              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
-              <stringProp name="HTTPSampler.path"> /notifications/get-notifications</stringProp>
+              <stringProp name="HTTPSampler.path">/notifications/get-notifications</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -347,7 +379,7 @@ cookieManager.add(newCookie);</stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/get-workouts">
-              <stringProp name="HTTPSampler.domain">localhost</stringProp>
+              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/exercise/get-workouts</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -361,19 +393,19 @@ cookieManager.add(newCookie);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
-        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="POST Request Throughput Controller">
+        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="POST Request Throughput Controller" enabled="true">
           <intProp name="ThroughputController.style">1</intProp>
           <boolProp name="ThroughputController.perThread">false</boolProp>
           <intProp name="ThroughputController.maxThroughput">1</intProp>
           <FloatProperty>
             <name>ThroughputController.percentThroughput</name>
-            <value>20.0</value>
+            <value>0.0</value>
             <savedValue>0.0</savedValue>
           </FloatProperty>
         </ThroughputController>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/update-workouts" enabled="true">
-            <stringProp name="HTTPSampler.domain">localhost</stringProp>
+            <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
             <stringProp name="HTTPSampler.port">3000</stringProp>
             <stringProp name="HTTPSampler.path">/exercise/update-workouts</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -394,7 +426,7 @@ cookieManager.add(newCookie);</stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/add-workout-data [Need to Add DATA]" enabled="true">
-            <stringProp name="HTTPSampler.domain">localhost</stringProp>
+            <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
             <stringProp name="HTTPSampler.port">80</stringProp>
             <stringProp name="HTTPSampler.path">/exercise/add-workout-data</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -415,7 +447,7 @@ cookieManager.add(newCookie);</stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /logs/add-new-habits" enabled="true">
-            <stringProp name="HTTPSampler.domain">localhost</stringProp>
+            <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
             <stringProp name="HTTPSampler.port">80</stringProp>
             <stringProp name="HTTPSampler.path"> /logs/add-new-habits</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -444,13 +476,13 @@ cookieManager.add(newCookie);</stringProp>
           <intProp name="ThroughputController.maxThroughput">1</intProp>
           <FloatProperty>
             <name>ThroughputController.percentThroughput</name>
-            <value>20.0</value>
+            <value>0.0</value>
             <savedValue>0.0</savedValue>
           </FloatProperty>
         </ThroughputController>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/update-workouts" enabled="true">
-            <stringProp name="HTTPSampler.domain">localhost</stringProp>
+            <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
             <stringProp name="HTTPSampler.port">3000</stringProp>
             <stringProp name="HTTPSampler.path">/exercise/update-workouts</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -471,7 +503,7 @@ cookieManager.add(newCookie);</stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/add-workout-data [Need to Add DATA]" enabled="true">
-            <stringProp name="HTTPSampler.domain">localhost</stringProp>
+            <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
             <stringProp name="HTTPSampler.port">80</stringProp>
             <stringProp name="HTTPSampler.path">/exercise/add-workout-data</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -492,7 +524,7 @@ cookieManager.add(newCookie);</stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/update-log [Need to add DATA]" enabled="true">
-            <stringProp name="HTTPSampler.domain">localhost</stringProp>
+            <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
             <stringProp name="HTTPSampler.port">80</stringProp>
             <stringProp name="HTTPSampler.path">/logs/update-log</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -506,7 +538,7 @@ cookieManager.add(newCookie);</stringProp>
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -543,7 +575,7 @@ cookieManager.add(newCookie);</stringProp>
         <stringProp name="filename">C:\Users\royal\Desktop\API Test\firstTryResponse.csv</stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>

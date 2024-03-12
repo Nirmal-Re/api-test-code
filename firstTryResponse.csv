@@ -1,0 +1,6 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1710255570121,35,/logs/fetch-all-habits,200,OK,Test Thread Group 1-1,text,true,,410,354,1,1,http://172.167.242.26/logs/fetch-all-habits,35,0,8
+1710255570598,38, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-3,text,true,,2731,368,1,1,http://172.167.242.26/exercise/get-workout-ids/pull,38,0,10
+1710255570752,112,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-3,text,true,,1038,390,1,1,http://172.167.242.26/exercise/get-workout-by-id/65f05961ea6c5d9b67c511f9,112,0,0
+1710255570910,34,/logs/get-log-ids,200,OK,Test Thread Group 1-5,text,true,,2731,362,1,1,http://172.167.242.26/logs/get-log-ids,34,0,8
+1710255570947,28,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-5,text,true,,618,389,1,1,http://172.167.242.26/logs/get-log-by-id/65f05960ea6c5d9b67c50f01,28,0,0
