@@ -1,5 +1,0 @@
-timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
-1707493036257,160,/exercise/get-workouts,200,OK,Test Thread Group 1-1,text,true,,384,352,1,1,http://localhost:3000/exercise/get-workouts,159,0,2
-1707493036666,10,/exercise/get-workouts,200,OK,Test Thread Group 1-3,text,true,,384,351,1,1,http://localhost:3000/exercise/get-workouts,10,0,2
-1707493036698,42,/exercise/update-workouts,200,OK,Test Thread Group 1-3,text,true,,389,446,1,1,http://localhost:3000/exercise/update-workouts,42,0,0
-1707493037040,20,/exercise/get-workouts,200,OK,Test Thread Group 1-5,text,true,,384,359,1,1,http://localhost:3000/exercise/get-workouts,20,0,1

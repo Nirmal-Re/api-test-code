@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 from pymongo import MongoClient
 import random
 from bson.objectid import ObjectId
+import string
 
 
 # Get today's date
@@ -19,11 +20,13 @@ from bson.objectid import ObjectId
 # args = parser.parse_args()
 
 #DATA TO REMEMBER so each run of this file pushes same data to the database
+index = 0
 all_data = {
     "habits_data": [],
     "logs_data": [],
     "workout_types_data": [],
-    "workout_data": []
+    "workout_data": [],
+    "notifications_data": []
 }
 
 try:
@@ -38,8 +41,10 @@ except (FileNotFoundError, json.JSONDecodeError):
 
 
 #connect to the mongo database
-client = MongoClient('mongodb://localhost:27017/')
-db = client['habit_tracker']
+urlLogs = ["mongodb+srv://nirmaladmin:TempPass123!@mongodb-monolithic.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000", ""]
+urlExercise = ["mongodb+srv://nirmaladmin:TempPass123!@mongodb-monolithic.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000", ""]
+urlNotifications = ["mongodb+srv://nirmaladmin:TempPass123!@mongodb-monolithic.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000", ""]
+urlDashboard = ["mongodb+srv://nirmaladmin:TempPass123!@mongodb-monolithic.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000", ""]
 
 # Load the jwt tokens from the users. And retrieve the user ID.
 micro = False
@@ -64,6 +69,8 @@ for i, cookie in enumerate(cookies):
 #SETTING HABITS FOR ALL USERS
 
 def upload_user_habit_data(user_ids, habits):
+    client = MongoClient(urlLogs[index])
+    db = client['habit_tracker']
     collection= db["coll_user_habits"]
     all_habits_docs = []
     if len(all_data["habits_data"]) > 0:
@@ -89,6 +96,8 @@ def upload_user_habit_data(user_ids, habits):
 
     
 def upload_user_logs_data(user_ids, habits, dates):
+    client = MongoClient(urlLogs[index])
+    db = client['habit_tracker']
     collection = db["coll_logs"]
     all_logs = []
     if len(all_data["logs_data"]) > 0:
@@ -118,6 +127,8 @@ def upload_user_logs_data(user_ids, habits, dates):
             
 
 def upload_user_workout_types_data(user_ids, value):
+    client = MongoClient(urlExercise[index])
+    db = client['habit_tracker']
     workout_types = ["pull", "push", "legs", "cardio"]
     collection = db["coll_user_workout_types"]
     all_workout_types = []
@@ -159,6 +170,8 @@ def create_exercise_data(name, type):
 
 
 def upload_workout_data(user_ids, values):
+    client = MongoClient(urlExercise[index])
+    db = client['habit_tracker']
     collection = db["coll_workout_data"]
     all_workout_data = []
     workout_types = ["pull", "push", "legs", "cardio"]
@@ -198,30 +211,38 @@ def upload_workout_data(user_ids, values):
     df.to_csv("coll_workout_data.csv", index=False)
     return True
 
+def generate_random_strings(length, num_strings):
+    result = []
+    for _ in range(num_strings):
+        random_string = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(length))
+        result.append(random_string)
+    return result
 
-
-def delete_by_id(collection, ids):
-    for id in ids:
-        collection.delete_one({"_id": ObjectId(id)})
-
-
-
-def delete_previous_upload_data(coll_names):
-    for coll_name in coll_names:
-        insert_ids = pd.read_csv(f"{coll_name}.csv")
-        first_column = insert_ids.iloc[:, 0].tolist()
-        delete_by_id(db[coll_names], first_column)
-    
-        
-def delete_all(collection_name):
-    collection = db[collection_name]
-    collection.delete_many({})
-
-
-upload_user_habit_data(user_ids, habits)
-upload_user_logs_data(user_ids, habits, dates)
-upload_user_workout_types_data(user_ids, workout_values)
-upload_workout_data(user_ids, workout_values)
+def upload_user_notifications_data(user_ids):
+    client = MongoClient(urlNotifications[index])
+    db = client['habit_tracker']
+    collection = db["coll_notifications"]
+    all_notifications = []
+    if len(all_data["notifications_data"]) > 0:
+        print("Data already exists")
+        all_data["notifications_data"] = all_data["notifications_data"]
+        for notification in all_data["notifications_data"]:
+            del notification["_id"]
+        insert_ids = collection.insert_many(all_data["notifications_data"]).inserted_ids
+        df = pd.DataFrame(insert_ids)
+        df.to_csv("coll_user_notifications.csv", index=False)
+        return True
+    for uid in user_ids:
+        data = {
+            "uid": uid,
+            "notifications": generate_random_strings(5, 10)
+        }
+        all_notifications.append(data)
+    all_data["notifications_data"] = all_notifications
+    insert_ids = collection.insert_many(all_notifications).inserted_ids
+    df = pd.DataFrame(insert_ids)
+    df.to_csv("coll_user_notifications.csv", index=False)
+    return True
 
 class JSONEncoder(json.JSONEncoder):
     def default(self, o):
@@ -231,12 +252,34 @@ class JSONEncoder(json.JSONEncoder):
             return o.isoformat()
         return json.JSONEncoder.default(self, o)
 
-# Open the JSON file
-with open('all_data.json', 'w') as f:
-    # Write the data to the file
-   f.write(JSONEncoder().encode(all_data))
+def write_all(all_data):
+    # Open the JSON file
+    with open('all_data.json', 'w') as f:
+        # Write the data to the file
+        f.write(JSONEncoder().encode(all_data))
 
-# delete_all("coll_user_habits")
-# delete_all("coll_logs")
-# delete_all("coll_user_workout_types")
-# delete_all("coll_workout_data")
+
+upload_user_habit_data(user_ids, habits)
+upload_user_logs_data(user_ids, habits, dates)
+upload_user_workout_types_data(user_ids, workout_values)
+upload_workout_data(user_ids, workout_values)
+upload_user_notifications_data(user_ids)
+write_all(all_data)
+
+
+
+
+#To Delete all the data
+def delete_all(url, coll_name):
+    client = MongoClient(url)
+    db = client['habit_tracker']
+    collection = db[coll_name]
+    collection.delete_many({})
+
+# delete_all(urlLogs[index], "coll_user_habits")
+# delete_all(urlLogs[index], "coll_logs")
+# delete_all(urlExercise[index], "coll_user_workout_types")
+# delete_all(urlExercise[index], "coll_workout_data")
+# delete_all(urlNotifications[index], "coll_notifications")
+
+# delete_all_redis()

@@ -35,10 +35,11 @@ fake = faker.Faker()
 header = ['email', 'password', 'lastName', 'firstName', 'cookie']
 
 # URL for registration and login
-host = 'http://localhost:3000'
+host = 'http://172.167.242.26'
 register_url = f'{host}/auth/register'
 login_url = f'{host}/auth/login'
 headers = {'Content-Type': 'application/json'}
+
 
 # Prepare the CSV file
 with open('users.csv', 'w', newline='') as f:
@@ -46,7 +47,7 @@ with open('users.csv', 'w', newline='') as f:
     writer.writerow(header)
 
     # Generate and register users
-    for _ in range(5):  # Generate 100 users
+    for _ in range(20):  # Generate 100 users
         email = fake.email()
         password = fake.password(length=10, special_chars=True, digits=True, upper_case=True, lower_case=True)
         first_name = fake.first_name()
