@@ -41,10 +41,10 @@ except (FileNotFoundError, json.JSONDecodeError):
 
 
 #connect to the mongo database
-urlLogs = ["mongodb+srv://nirmaladmin:TempPass123!@mongodb-monolithic.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000", ""]
-urlExercise = ["mongodb+srv://nirmaladmin:TempPass123!@mongodb-monolithic.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000", ""]
-urlNotifications = ["mongodb+srv://nirmaladmin:TempPass123!@mongodb-monolithic.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000", ""]
-urlDashboard = ["mongodb+srv://nirmaladmin:TempPass123!@mongodb-monolithic.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000", ""]
+urlLogs = ["mongodb://51.143.220.27:27017/", ""]
+urlExercise = ["mongodb://51.143.220.27:27017/", ""]
+urlNotifications = ["mongodb://51.143.220.27:27017/", ""]
+urlDashboard = ["mongodb://51.143.220.27:27017/", ""]
 
 # Load the jwt tokens from the users. And retrieve the user ID.
 micro = False
