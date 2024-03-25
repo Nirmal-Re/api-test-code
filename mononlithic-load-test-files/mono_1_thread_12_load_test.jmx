@@ -10,7 +10,7 @@
       <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config">
         <stringProp name="delimiter">,</stringProp>
         <stringProp name="fileEncoding"></stringProp>
-        <stringProp name="filename">C:/Users/royal/Desktop/API Test/seed-data/users.csv</stringProp>
+        <stringProp name="filename">users.csv</stringProp>
         <boolProp name="ignoreFirstLine">true</boolProp>
         <boolProp name="quotedData">false</boolProp>
         <boolProp name="recycle">true</boolProp>
@@ -54,7 +54,7 @@ cookieManager.add(newCookie);</stringProp>
         <stringProp name="scriptLanguage">groovy</stringProp>
       </JSR223PreProcessor>
       <hashTree/>
-      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
         <collectionProp name="HeaderManager.headers">
           <elementProp name="" elementType="Header">
             <stringProp name="Header.name">Content-Type</stringProp>
@@ -70,7 +70,7 @@ cookieManager.add(newCookie);</stringProp>
       </CookieManager>
       <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Test Thread Group">
-        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.num_threads">12</intProp>
         <intProp name="ThreadGroup.ramp_time">1</intProp>
         <longProp name="ThreadGroup.duration">240</longProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -164,18 +164,18 @@ cookieManager.add(newCookie);</stringProp>
           <intProp name="ThroughputController.maxThroughput">1000</intProp>
           <FloatProperty>
             <name>ThroughputController.percentThroughput</name>
-            <value>0.0</value>
+            <value>100.0</value>
             <savedValue>0.0</savedValue>
           </FloatProperty>
         </ThroughputController>
         <hashTree>
-          <RandomController guiclass="RandomControlGui" testclass="RandomController" testname="Random Controller">
+          <RandomController guiclass="RandomControlGui" testclass="RandomController" testname="Random Controller" enabled="true">
             <intProp name="InterleaveControl.style">1</intProp>
           </RandomController>
           <hashTree>
-            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Logs Simple Controller"/>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Logs Simple Controller" enabled="true"/>
             <hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/get-log-ids">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/get-log-ids" enabled="true">
                 <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
                 <stringProp name="HTTPSampler.path">/logs/get-log-ids</stringProp>
@@ -220,7 +220,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
                 </JSR223PostProcessor>
                 <hashTree/>
               </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/get-log-by-id/:id">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/get-log-by-id/:id" enabled="true">
                 <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
                 <stringProp name="HTTPSampler.path">/logs/get-log-by-id/${randomIDValue}</stringProp>
@@ -234,7 +234,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
               </HTTPSamplerProxy>
               <hashTree/>
             </hashTree>
-            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Exercise Simple Controller"/>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Exercise Simple Controller" enabled="true"/>
             <hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /exercise/get-workout-ids/pull" enabled="true">
                 <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
@@ -321,7 +321,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
               </elementProp>
             </HTTPSamplerProxy>
             <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/dashboard/get-user-report-data">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/dashboard/get-user-report-data" enabled="true">
               <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/dashboard/get-user-report-data</stringProp>
@@ -334,8 +334,8 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
                   <elementProp name="" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.value">{&#xd;
-    &quot;start&quot;: &quot;2024-01-16&quot;,&#xd;
-    &quot;end&quot;:&quot;2024-02-16&quot;&#xd;
+    &quot;start&quot;: &quot;2024-01-01&quot;,&#xd;
+    &quot;end&quot;:&quot;2025-02-16&quot;&#xd;
 }</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
@@ -343,7 +343,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
               </elementProp>
             </HTTPSamplerProxy>
             <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /dashboard/get-workout-historic-data">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /dashboard/get-workout-historic-data" enabled="true">
               <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/dashboard/get-workout-historic-data</stringProp>
@@ -356,8 +356,8 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
                   <elementProp name="" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.value">{&#xd;
-    &quot;start&quot;: &quot;2024-01-16&quot;,&#xd;
-    &quot;end&quot;:&quot;2024-02-16&quot;&#xd;
+    &quot;start&quot;: &quot;2024-01-01&quot;,&#xd;
+    &quot;end&quot;:&quot;2025-02-16&quot;&#xd;
 }</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
@@ -365,7 +365,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
               </elementProp>
             </HTTPSamplerProxy>
             <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /notifications/get-notifications">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /notifications/get-notifications" enabled="true">
               <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/notifications/get-notifications</stringProp>
@@ -378,7 +378,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
               </elementProp>
             </HTTPSamplerProxy>
             <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/get-workouts">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/get-workouts" enabled="true">
               <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/exercise/get-workouts</stringProp>
@@ -393,7 +393,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
-        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="POST Request Throughput Controller">
+        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="POST Request Throughput Controller" enabled="true">
           <intProp name="ThroughputController.style">1</intProp>
           <boolProp name="ThroughputController.perThread">true</boolProp>
           <intProp name="ThroughputController.maxThroughput">1</intProp>
@@ -404,403 +404,141 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
           </FloatProperty>
         </ThroughputController>
         <hashTree>
-          <RandomController guiclass="RandomControlGui" testclass="RandomController" testname="Random Controller">
-            <intProp name="InterleaveControl.style">1</intProp>
-          </RandomController>
-          <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/update-workouts">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
-              <stringProp name="HTTPSampler.port">80</stringProp>
-              <stringProp name="HTTPSampler.path">/exercise/update-workouts</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&#xd;
-    &quot;update&quot;: [{&quot;type&quot;:&quot;cardio&quot;, &quot;remove&quot;: [&quot;&quot;], &quot;add&quot;: [&quot;run&quot;, &quot;assultbike&quot;]}]&#xd;
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/update-workouts" enabled="true">
+            <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+            <stringProp name="HTTPSampler.port">3000</stringProp>
+            <stringProp name="HTTPSampler.path">/exercise/update-workouts</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;update&quot;: [{&quot;type&quot;:&quot;cardio&quot;, &quot;remove&quot;: [&quot;&quot;], &quot;add&quot;: [&quot;run&quot;]}]&#xd;
 }</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-            </HTTPSamplerProxy>
-            <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/add-workout-data">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
-              <stringProp name="HTTPSampler.port">80</stringProp>
-              <stringProp name="HTTPSampler.path">/exercise/add-workout-data</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&#xd;
-  &quot;update&quot;: {&#xd;
-    &quot;type&quot;: &quot;push&quot;,&#xd;
-    &quot;data&quot;: [&#xd;
-      {&#xd;
-        &quot;name&quot;: &quot;push-ups&quot;,&#xd;
-        &quot;sets&quot;: [&#xd;
-          {&#xd;
-            &quot;weight&quot;: 77,&#xd;
-            &quot;reps&quot;: 4&#xd;
-          },&#xd;
-          {&#xd;
-            &quot;weight&quot;: 93,&#xd;
-            &quot;reps&quot;: 17&#xd;
-          },&#xd;
-          {&#xd;
-            &quot;weight&quot;: 99,&#xd;
-            &quot;reps&quot;: 20&#xd;
-          },&#xd;
-          {&#xd;
-            &quot;weight&quot;: 19,&#xd;
-            &quot;reps&quot;: 15&#xd;
-          },&#xd;
-          {&#xd;
-            &quot;weight&quot;: 71,&#xd;
-            &quot;reps&quot;: 2&#xd;
-          }&#xd;
-        ]&#xd;
-      },&#xd;
-      {&#xd;
-        &quot;name&quot;: &quot;bench press&quot;,&#xd;
-        &quot;sets&quot;: [&#xd;
-          {&#xd;
-            &quot;weight&quot;: 100,&#xd;
-            &quot;reps&quot;: 10&#xd;
-          },&#xd;
-          {&#xd;
-            &quot;weight&quot;: 33,&#xd;
-            &quot;reps&quot;: 17&#xd;
-          },&#xd;
-          {&#xd;
-            &quot;weight&quot;: 93,&#xd;
-            &quot;reps&quot;: 3&#xd;
-          },&#xd;
-          {&#xd;
-            &quot;weight&quot;: 70,&#xd;
-            &quot;reps&quot;: 9&#xd;
-          }&#xd;
-        ]&#xd;
-      },&#xd;
-      {&#xd;
-        &quot;name&quot;: &quot;dumbbell press&quot;,&#xd;
-        &quot;sets&quot;: [&#xd;
-          {&#xd;
-            &quot;weight&quot;: 39,&#xd;
-            &quot;reps&quot;: 20&#xd;
-          },&#xd;
-          {&#xd;
-            &quot;weight&quot;: 69,&#xd;
-            &quot;reps&quot;: 15&#xd;
-          },&#xd;
-          {&#xd;
-            &quot;weight&quot;: 85,&#xd;
-            &quot;reps&quot;: 6&#xd;
-          },&#xd;
-          {&#xd;
-            &quot;weight&quot;: 64,&#xd;
-            &quot;reps&quot;: 20&#xd;
-          }&#xd;
-        ]&#xd;
-      },&#xd;
-      {&#xd;
-        &quot;name&quot;: &quot;dips&quot;,&#xd;
-        &quot;sets&quot;: [&#xd;
-          {&#xd;
-            &quot;weight&quot;: 76,&#xd;
-            &quot;reps&quot;: 7&#xd;
-          },&#xd;
-          {&#xd;
-            &quot;weight&quot;: 1,&#xd;
-            &quot;reps&quot;: 15&#xd;
-          },&#xd;
-          {&#xd;
-            &quot;weight&quot;: 81,&#xd;
-            &quot;reps&quot;: 16&#xd;
-          },&#xd;
-          {&#xd;
-            &quot;weight&quot;: 58,&#xd;
-            &quot;reps&quot;: 18&#xd;
-          },&#xd;
-          {&#xd;
-            &quot;weight&quot;: 62,&#xd;
-            &quot;reps&quot;: 10&#xd;
-          }&#xd;
-        ]&#xd;
-      }&#xd;
-    ]&#xd;
-  }&#xd;
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/add-workout-data [Need to Add DATA]" enabled="true">
+            <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+            <stringProp name="HTTPSampler.port">80</stringProp>
+            <stringProp name="HTTPSampler.path">/exercise/add-workout-data</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;update&quot;: [{&quot;type&quot;:&quot;cardio&quot;, &quot;remove&quot;: [&quot;&quot;], &quot;add&quot;: [&quot;run&quot;]}]&#xd;
 }</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-            </HTTPSamplerProxy>
-            <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /logs/add-new-habits">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
-              <stringProp name="HTTPSampler.port">80</stringProp>
-              <stringProp name="HTTPSampler.path">/logs/add-new-habits</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&#xd;
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /logs/add-new-habits" enabled="true">
+            <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+            <stringProp name="HTTPSampler.port">80</stringProp>
+            <stringProp name="HTTPSampler.path"> /logs/add-new-habits</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  {&#xd;
     &quot;newHabits&quot;:&quot;water,pumpkin&quot;&#xd;
+}&#xd;
 }</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-            </HTTPSamplerProxy>
-            <hashTree/>
-          </hashTree>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
         </hashTree>
-        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="PUT Request Throughput Controller">
+        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="PUT Request Throughput Controller" enabled="true">
           <intProp name="ThroughputController.style">1</intProp>
           <boolProp name="ThroughputController.perThread">true</boolProp>
           <intProp name="ThroughputController.maxThroughput">1</intProp>
           <FloatProperty>
             <name>ThroughputController.percentThroughput</name>
-            <value>100.0</value>
+            <value>0.0</value>
             <savedValue>0.0</savedValue>
           </FloatProperty>
         </ThroughputController>
         <hashTree>
-          <RandomController guiclass="RandomControlGui" testclass="RandomController" testname="Random Controller">
-            <intProp name="InterleaveControl.style">1</intProp>
-          </RandomController>
-          <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/update-workouts">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
-              <stringProp name="HTTPSampler.port">80</stringProp>
-              <stringProp name="HTTPSampler.path">/exercise/update-workouts</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&#xd;
-    &quot;update&quot;: [{&quot;type&quot;:&quot;cardio&quot;, &quot;remove&quot;: [&quot;assultbike&quot;], &quot;add&quot;: []}]&#xd;
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/update-workouts" enabled="true">
+            <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+            <stringProp name="HTTPSampler.port">3000</stringProp>
+            <stringProp name="HTTPSampler.path">/exercise/update-workouts</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;update&quot;: [{&quot;type&quot;:&quot;cardio&quot;, &quot;remove&quot;: [&quot;&quot;], &quot;add&quot;: [&quot;run&quot;]}]&#xd;
 }</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-            </HTTPSamplerProxy>
-            <hashTree/>
-            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Logs Simple Controller"/>
-            <hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/get-log-ids">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
-                <stringProp name="HTTPSampler.port">80</stringProp>
-                <stringProp name="HTTPSampler.path">/logs/get-log-ids</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <stringProp name="HTTPSampler.method">GET</stringProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
-                  <collectionProp name="Arguments.arguments"/>
+                  <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor for Ids">
-                  <stringProp name="JSONPostProcessor.referenceNames">ID</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$[*].id</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
-                  <stringProp name="cacheKey">true</stringProp>
-                  <stringProp name="filename"></stringProp>
-                  <stringProp name="parameters"></stringProp>
-                  <stringProp name="script">import java.util.Random
-
-// Create a new Random object
-Random random = new Random()
-
-// Generate a random number between a min and max
-int min = 1
-int max = ${ID_matchNr}
-int randomNumber = random.nextInt(max - min + 1) + min
-
-// Store the random number in a JMeter variable
-vars.put(&quot;randomNumber&quot;, randomNumber.toString())
-
-// Print the random number to the console
-log.info(&quot;Random number: &quot; + randomNumber)
-
-def randomIDValue = vars.get(&quot;ID_&quot; + randomNumber);
-vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
-                  <stringProp name="scriptLanguage">groovy</stringProp>
-                </JSR223PostProcessor>
-                <hashTree/>
-              </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/get-log-by-id/:id">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
-                <stringProp name="HTTPSampler.port">80</stringProp>
-                <stringProp name="HTTPSampler.path">/logs/get-log-by-id/${randomIDValue}</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <stringProp name="HTTPSampler.method">GET</stringProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
-                  <collectionProp name="Arguments.arguments"/>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/add-workout-data [Need to Add DATA]" enabled="true">
+            <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+            <stringProp name="HTTPSampler.port">80</stringProp>
+            <stringProp name="HTTPSampler.path">/exercise/add-workout-data</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;update&quot;: [{&quot;type&quot;:&quot;cardio&quot;, &quot;remove&quot;: [&quot;&quot;], &quot;add&quot;: [&quot;run&quot;]}]&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor">
-                  <stringProp name="JSONPostProcessor.referenceNames">DATA_EXTRACTED</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
-                  <stringProp name="cacheKey">true</stringProp>
-                  <stringProp name="filename"></stringProp>
-                  <stringProp name="parameters"></stringProp>
-                  <stringProp name="script">log.info(&quot;DATA_EXTRACTED: &quot; +  vars.get(&quot;DATA_EXTRACTED&quot;).toString())</stringProp>
-                  <stringProp name="scriptLanguage">groovy</stringProp>
-                </JSR223PostProcessor>
-                <hashTree/>
-              </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/update-log">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
-                <stringProp name="HTTPSampler.port">80</stringProp>
-                <stringProp name="HTTPSampler.path">/logs/update-log</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <stringProp name="HTTPSampler.method">POST</stringProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                  <collectionProp name="Arguments.arguments">
-                    <elementProp name="" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">${DATA_EXTRACTED}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </elementProp>
-              </HTTPSamplerProxy>
-              <hashTree/>
-            </hashTree>
-            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Exercise Simple Controller"/>
-            <hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /exercise/get-workout-ids/pull">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
-                <stringProp name="HTTPSampler.port">80</stringProp>
-                <stringProp name="HTTPSampler.path">/exercise/get-workout-ids/push</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <stringProp name="HTTPSampler.method">GET</stringProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
-                  <collectionProp name="Arguments.arguments"/>
-                </elementProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor for Ids" enabled="true">
-                  <stringProp name="JSONPostProcessor.referenceNames">ID</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$[*].id</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
-                  <stringProp name="cacheKey">true</stringProp>
-                  <stringProp name="filename"></stringProp>
-                  <stringProp name="parameters"></stringProp>
-                  <stringProp name="script">import java.util.Random
-
-// Create a new Random object
-Random random = new Random()
-
-// Generate a random number between a min and max
-int min = 1
-int max = ${ID_matchNr}
-int randomNumber = random.nextInt(max - min + 1) + min
-
-// Store the random number in a JMeter variable
-vars.put(&quot;randomNumber&quot;, randomNumber.toString())
-
-// Print the random number to the console
-log.info(&quot;Random number: &quot; + randomNumber)
-
-def randomIDValue = vars.get(&quot;ID_&quot; + randomNumber);
-vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
-                  <stringProp name="scriptLanguage">groovy</stringProp>
-                </JSR223PostProcessor>
-                <hashTree/>
-              </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/get-workout-by-id/:id">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
-                <stringProp name="HTTPSampler.port">80</stringProp>
-                <stringProp name="HTTPSampler.path">/exercise/get-workout-by-id/${randomIDValue}</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <stringProp name="HTTPSampler.method">GET</stringProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
-                  <collectionProp name="Arguments.arguments"/>
-                </elementProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor">
-                  <stringProp name="JSONPostProcessor.referenceNames">DATA_EXTRACTED</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
-                  <stringProp name="cacheKey">true</stringProp>
-                  <stringProp name="filename"></stringProp>
-                  <stringProp name="parameters"></stringProp>
-                  <stringProp name="script">log.info(&quot;DATA_EXTRACTED: &quot; +  vars.get(&quot;DATA_EXTRACTED&quot;).toString())</stringProp>
-                  <stringProp name="scriptLanguage">groovy</stringProp>
-                </JSR223PostProcessor>
-                <hashTree/>
-              </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/add-workout-data">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
-                <stringProp name="HTTPSampler.port">80</stringProp>
-                <stringProp name="HTTPSampler.path">/exercise/add-workout-data</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <stringProp name="HTTPSampler.method">POST</stringProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                  <collectionProp name="Arguments.arguments">
-                    <elementProp name="" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&#xd;
-    &quot;update&quot;: ${DATA_EXTRACTED}&#xd;
-    }</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </elementProp>
-              </HTTPSamplerProxy>
-              <hashTree/>
-            </hashTree>
-          </hashTree>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/update-log [Need to add DATA]" enabled="true">
+            <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+            <stringProp name="HTTPSampler.port">80</stringProp>
+            <stringProp name="HTTPSampler.path">/logs/update-log</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
         </hashTree>
       </hashTree>
-      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table">
+      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -871,10 +609,10 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">C:\Users\royal\Desktop\API Test\summary.csv</stringProp>
+        <stringProp name="filename">C:\Users\royal\Downloads\FYP downloads\csv\engine1_results.csv</stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>

@@ -41,10 +41,10 @@ except (FileNotFoundError, json.JSONDecodeError):
 
 
 #connect to the mongo database
-urlLogs = ["mongodb://51.143.220.27:27017/", ""]
-urlExercise = ["mongodb://51.143.220.27:27017/", ""]
-urlNotifications = ["mongodb://51.143.220.27:27017/", ""]
-urlDashboard = ["mongodb://51.143.220.27:27017/", ""]
+urlLogs = ["mongodb://nirmaladmin:MongoPass763!@51.143.220.27:27017/", ""]
+urlExercise = ["mongodb://nirmaladmin:MongoPass763!@51.143.220.27:27017/", ""]
+urlNotifications = ["mongodb://nirmaladmin:MongoPass763!@51.143.220.27:27017/", ""]
+urlDashboard = ["mongodb://nirmaladmin:MongoPass763!@51.143.220.27:27017/", ""]
 
 # Load the jwt tokens from the users. And retrieve the user ID.
 micro = False

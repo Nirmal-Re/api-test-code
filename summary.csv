@@ -1,12 +1,786 @@
-Label,# Samples,Average,Min,Max,Std. Dev.,Error %,Throughput,Received KB/sec,Sent KB/sec,Avg. Bytes
-/dashboard/get-user-report-data,1825,292,36,2096,125.89,100.000%,30.69910,11.04,13.21,368.2
- /logs/get-daily-log,1832,293,29,2110,150.98,0.600%,30.82048,19.02,10.60,632.0
- /notifications/get-notifications,1799,291,16,2103,129.27,0.611%,30.28314,16.95,10.80,573.2
-/logs/fetch-all-habits,1797,299,32,2095,166.96,0.612%,30.25558,12.50,10.49,423.1
-/exercise/get-workouts,1829,299,31,2100,172.73,0.383%,30.80888,16.00,10.71,531.7
- /exercise/get-workout-ids/pull,1773,293,13,2108,147.90,0.790%,29.81636,79.48,10.56,2729.6
-/logs/get-log-ids,1783,296,25,2018,156.50,0.337%,29.98554,79.95,10.28,2730.4
-/exercise/get-workout-by-id/:id,1759,300,28,1994,152.60,0.455%,29.78277,32.06,11.22,1102.5
-/logs/get-log-by-id/:id,1777,295,27,2102,164.90,0.394%,30.08906,18.47,11.10,628.7
- /dashboard/get-workout-historic-data,1826,547,46,2133,199.44,0.657%,30.71954,40.55,13.36,1351.5
-TOTAL,18000,321,13,2133,175.46,10.622%,302.69398,325.59,112.12,1101.5
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1711370495166,27,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,27,0,8
+1711370495222,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebd,14,0,0
+1711370495258,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,16,0,0
+1711370495276,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370495293,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb8,13,0,0
+1711370495309,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370495326,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370495344,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea7,14,0,0
+1711370495361,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,16,0,0
+1711370495379,16,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,16,0,0
+1711370495398,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb9,13,0,0
+1711370495415,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,16,0,0
+1711370495433,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370495450,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,624,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb4,14,0,0
+1711370495466,18,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,695,1,1,http://172.167.242.26/logs/update-log,18,0,0
+1711370495486,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370495502,19,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,622,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb5,19,0,0
+1711370495523,19,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,693,1,1,http://172.167.242.26/logs/update-log,19,0,0
+1711370495544,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370495560,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb0,12,0,0
+1711370495575,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370495591,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370495636,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed65bd80d729178552f,14,0,0
+1711370495651,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370495668,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370495683,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370495699,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb1,12,0,0
+1711370495713,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370495730,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370495749,22, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,22,0,0
+1711370495776,15,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016eda5bd80d729178557b,15,0,0
+1711370495795,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370495814,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,18,0,0
+1711370495838,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed35bd80d729178550b,14,0,0
+1711370495856,18,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,18,0,0
+1711370495877,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370495895,15,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,622,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeaf,15,0,0
+1711370495914,18,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,693,1,1,http://172.167.242.26/logs/update-log,18,0,0
+1711370495935,21, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,20,0,0
+1711370495962,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edd5bd80d72917855af,14,0,0
+1711370495980,17,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,17,0,0
+1711370496001,18,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,18,0,0
+1711370496023,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370496045,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,624,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeab,14,0,0
+1711370496064,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,695,1,1,http://172.167.242.26/logs/update-log,16,0,0
+1711370496083,18, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,18,0,0
+1711370496108,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016eda5bd80d7291785578,14,0,0
+1711370496127,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370496146,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,18,0,0
+1711370496177,16,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,907,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66015b1dea8289dee65ab13e,16,0,0
+1711370496198,19,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1012,1,1,http://172.167.242.26/exercise/add-workout-data,19,0,0
+1711370496221,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370496245,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed95bd80d729178556a,14,0,0
+1711370496265,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370496286,18, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370496310,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed85bd80d729178555e,13,0,0
+1711370496327,20,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,20,0,0
+1711370496350,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370496368,21, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,20,0,0
+1711370496394,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed35bd80d729178550a,14,0,0
+1711370496413,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370496433,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,16,0,0
+1711370496453,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370496471,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,625,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeac,14,0,0
+1711370496489,20,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,696,1,1,http://172.167.242.26/logs/update-log,20,0,0
+1711370496513,17,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,17,0,0
+1711370496533,16,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370496553,15,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebd,15,0,0
+1711370496572,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,16,0,0
+1711370496591,22,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,22,0,0
+1711370496619,16,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebd,16,0,0
+1711370496641,30,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,30,0,0
+1711370496676,26, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,26,0,0
+1711370496707,17,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed75bd80d729178553e,17,0,0
+1711370496726,18,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,18,0,0
+1711370496746,18, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370496767,12,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed45bd80d7291785518,12,0,0
+1711370496781,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370496797,29,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,29,0,0
+1711370496827,30, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,30,0,0
+1711370496860,12,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed85bd80d7291785552,12,0,0
+1711370496875,17,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,17,0,0
+1711370496894,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,13,0,0
+1711370496909,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370496925,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370496946,12,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed95bd80d729178556f,12,0,0
+1711370496959,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370496975,12,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,12,0,0
+1711370496989,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb0,13,0,0
+1711370497004,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,13,0,0
+1711370497019,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,12,0,0
+1711370497034,17,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,625,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeac,17,0,0
+1711370497054,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,696,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370497071,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370497090,15,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,624,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeab,15,0,0
+1711370497110,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,695,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370497127,18, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370497150,15,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed65bd80d7291785537,15,0,0
+1711370497169,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370497188,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16336,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,19,0,0
+1711370497213,43,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edb5bd80d7291785596,43,0,9
+1711370497261,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370497283,26, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,19,0,0
+1711370497318,22,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edd5bd80d72917855a7,22,0,0
+1711370497344,18,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,18,0,0
+1711370497366,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370497386,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,627,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea9,14,0,0
+1711370497404,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,698,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370497420,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370497438,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370497456,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb8,14,0,0
+1711370497474,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370497492,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,18,0,0
+1711370497516,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edb5bd80d7291785590,14,0,0
+1711370497533,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370497552,19,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,19,0,0
+1711370497575,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370497593,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,620,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebf,14,0,0
+1711370497610,17,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,691,1,1,http://172.167.242.26/logs/update-log,17,0,0
+1711370497630,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370497649,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb0,13,0,0
+1711370497667,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370497684,17,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,17,0,0
+1711370497704,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370497722,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370497740,22,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb7,21,0,0
+1711370497765,25,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,25,0,0
+1711370497793,17,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,17,0,0
+1711370497815,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb7,14,0,0
+1711370497833,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,16,0,0
+1711370497853,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370497871,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebc,13,0,0
+1711370497888,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370497908,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370497926,20,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,624,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeba,20,0,0
+1711370497951,18,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,695,1,1,http://172.167.242.26/logs/update-log,18,0,0
+1711370497972,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,18,0,0
+1711370497996,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,957,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66015b1dea8289dee65ab14a,13,0,0
+1711370498013,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1062,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370498032,17,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,17,0,0
+1711370498052,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370498074,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed65bd80d729178552a,14,0,0
+1711370498091,19,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,19,0,0
+1711370498113,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370498132,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea5,14,0,0
+1711370498153,19,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,19,0,0
+1711370498174,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,16,0,0
+1711370498193,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370498211,36,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb7,36,0,0
+1711370498251,23,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,23,0,0
+1711370498278,18, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370498300,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed65bd80d7291785526,14,0,0
+1711370498317,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370498336,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,16,0,0
+1711370498355,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,16,0,0
+1711370498375,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370498399,16,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016eda5bd80d7291785573,16,0,0
+1711370498419,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370498436,16,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,16,0,0
+1711370498456,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb7,13,0,0
+1711370498473,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370498492,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,18,0,0
+1711370498516,15,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed95bd80d7291785568,15,0,0
+1711370498534,17,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,17,0,0
+1711370498554,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370498573,18,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,618,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea2,18,0,0
+1711370498595,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,689,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370498613,17,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,17,0,0
+1711370498633,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370498651,20, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,19,0,0
+1711370498676,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed85bd80d7291785553,13,0,0
+1711370498693,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370498710,17,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,17,0,0
+1711370498729,45, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,44,0,0
+1711370498778,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed95bd80d7291785572,14,0,0
+1711370498796,18,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,18,0,0
+1711370498817,24,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,24,0,0
+1711370498844,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370498863,22,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,625,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeac,22,0,0
+1711370498889,28,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,696,1,1,http://172.167.242.26/logs/update-log,28,0,0
+1711370498918,28,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,28,0,0
+1711370498947,24, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,23,0,0
+1711370498973,17,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed65bd80d7291785527,17,0,0
+1711370498992,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370499008,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370499024,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370499040,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370499055,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb9,12,0,0
+1711370499068,19,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,19,0,0
+1711370499089,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370499104,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebd,13,0,0
+1711370499120,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370499138,24,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,24,0,0
+1711370499164,22, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,19,0,0
+1711370499189,12,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edd5bd80d72917855ab,12,0,0
+1711370499203,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370499220,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,16,0,0
+1711370499238,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,15,0,0
+1711370499257,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edb5bd80d7291785591,12,0,0
+1711370499271,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,306,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370499287,25,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,25,0,7
+1711370499313,23, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370499338,15,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed85bd80d729178554b,15,0,0
+1711370499355,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370499375,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370499393,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeaa,12,0,0
+1711370499409,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,16,0,0
+1711370499428,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370499447,16,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,16,0,0
+1711370499467,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea5,13,0,0
+1711370499484,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,16,0,0
+1711370499503,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,18,0,0
+1711370499527,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed45bd80d7291785510,14,0,0
+1711370499544,19,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,19,0,0
+1711370499565,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,16,0,0
+1711370499584,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370499608,15,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed95bd80d7291785571,15,0,0
+1711370499627,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370499645,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370499663,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebb,14,0,0
+1711370499680,17,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,16,0,0
+1711370499700,28,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,28,0,0
+1711370499730,30,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,30,0,0
+1711370499774,24, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370499800,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed75bd80d729178553f,14,0,0
+1711370499815,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370499831,18,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,18,0,0
+1711370499851,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370499870,12,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed65bd80d7291785527,12,0,0
+1711370499884,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370499901,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,15,0,0
+1711370499922,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edb5bd80d729178558a,13,0,0
+1711370499938,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370499956,17,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,17,0,0
+1711370499977,18,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebd,17,0,0
+1711370499997,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370500016,18, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370500037,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed95bd80d7291785562,14,0,0
+1711370500053,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370500070,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370500084,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea4,14,0,0
+1711370500099,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370500114,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370500129,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370500144,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,618,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea2,13,0,0
+1711370500159,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,689,1,1,http://172.167.242.26/logs/update-log,16,0,0
+1711370500176,22,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,22,0,0
+1711370500200,11,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb9,11,0,0
+1711370500213,17,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,17,0,0
+1711370500237,12,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,12,0,0
+1711370500251,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,620,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebf,12,0,0
+1711370500264,18,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,691,1,1,http://172.167.242.26/logs/update-log,18,0,0
+1711370500283,18, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370500304,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016eda5bd80d7291785580,12,0,0
+1711370500319,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,13,0,0
+1711370500334,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370500349,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370500365,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370500381,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebc,13,0,0
+1711370500396,17,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,17,0,0
+1711370500414,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370500434,15,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016eda5bd80d7291785580,15,0,0
+1711370500451,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370500466,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370500483,20,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,20,0,0
+1711370500508,18,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,626,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb3,18,0,0
+1711370500529,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,697,1,1,http://172.167.242.26/logs/update-log,16,0,0
+1711370500548,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370500566,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,622,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebe,13,0,0
+1711370500582,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,693,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370500599,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370500616,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370500634,20, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370500658,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016eda5bd80d7291785579,13,0,0
+1711370500675,17,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,17,0,0
+1711370500695,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370500717,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed55bd80d729178551e,13,0,0
+1711370500732,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370500750,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370500766,16, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,14,0,0
+1711370500784,12,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed85bd80d729178554a,12,0,0
+1711370500797,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370500812,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370500833,12,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edd5bd80d72917855a7,12,0,0
+1711370500847,13,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,13,0,0
+1711370500861,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370500877,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea7,13,0,0
+1711370500893,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370500910,20, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,19,0,0
+1711370500934,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edc5bd80d72917855a1,13,0,0
+1711370500950,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370500968,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370500986,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb8,14,0,0
+1711370501004,18,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,18,0,0
+1711370501025,24,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,23,0,0
+1711370501053,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370501078,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed85bd80d729178555e,13,0,0
+1711370501094,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370501109,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370501128,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,955,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016eda5bd80d7291785587,13,0,0
+1711370501143,23,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,23,0,7
+1711370501168,13,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,13,0,0
+1711370501183,21, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,15,0,0
+1711370501207,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed65bd80d729178552e,13,0,0
+1711370501223,36,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,36,0,0
+1711370501270,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370501291,15,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed55bd80d7291785522,15,0,0
+1711370501308,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370501324,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370501340,17,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,17,0,0
+1711370501358,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370501375,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,625,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeac,14,0,0
+1711370501391,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,696,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370501407,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370501422,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb2,12,0,0
+1711370501435,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370501452,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,15,0,0
+1711370501472,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed95bd80d7291785563,13,0,0
+1711370501488,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370501504,20, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370501526,12,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016eda5bd80d7291785582,12,0,0
+1711370501540,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370501555,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370501571,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370501587,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,16,0,0
+1711370501604,16, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,15,0,0
+1711370501622,11,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016eda5bd80d7291785580,11,0,0
+1711370501635,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370501652,20, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,19,0,0
+1711370501676,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edc5bd80d72917855a4,13,0,0
+1711370501694,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370501712,51,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,51,0,0
+1711370501766,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,16,0,0
+1711370501795,18, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370501817,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed75bd80d729178553f,13,0,0
+1711370501834,17,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,17,0,0
+1711370501853,16,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,16,0,0
+1711370501871,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,625,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea6,12,0,0
+1711370501885,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,696,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370501901,20,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,20,0,0
+1711370501924,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370501943,18, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370501966,18,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed75bd80d7291785549,18,0,0
+1711370501989,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370502009,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,16,0,0
+1711370502027,20, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,20,0,0
+1711370502054,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed75bd80d7291785541,13,0,0
+1711370502071,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370502089,22, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,22,0,0
+1711370502116,15,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edd5bd80d72917855ab,15,0,0
+1711370502133,18,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,18,0,0
+1711370502153,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370502169,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,624,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb4,12,0,0
+1711370502184,17,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,695,1,1,http://172.167.242.26/logs/update-log,17,0,0
+1711370502203,16, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,15,0,0
+1711370502222,12,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edd5bd80d72917855ac,12,0,0
+1711370502236,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370502254,29,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,29,0,0
+1711370502286,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb9,13,0,0
+1711370502300,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370502315,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370502331,13,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,13,0,0
+1711370502346,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370502361,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb2,13,0,0
+1711370502377,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370502395,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370502413,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370502431,17,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebb,17,0,0
+1711370502450,18,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,18,0,0
+1711370502470,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370502488,17,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,17,0,0
+1711370502507,12,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,12,0,0
+1711370502521,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,622,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeaf,14,0,0
+1711370502536,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,693,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370502553,16, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,15,0,0
+1711370502571,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed75bd80d729178553a,14,0,0
+1711370502587,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370502604,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370502620,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370502637,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb0,12,0,0
+1711370502652,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370502667,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370502684,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,626,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb3,13,0,0
+1711370502700,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,697,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370502716,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370502731,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,624,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeba,13,0,0
+1711370502747,35,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,695,1,1,http://172.167.242.26/logs/update-log,35,0,0
+1711370502788,16,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370502805,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb2,12,0,0
+1711370502819,13,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,13,0,0
+1711370502834,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370502849,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea7,12,0,0
+1711370502862,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,13,0,0
+1711370502877,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,19,0,0
+1711370502898,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed65bd80d7291785526,13,0,0
+1711370502912,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370502927,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370502942,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,624,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeab,14,0,0
+1711370502959,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,695,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370502976,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2807,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370502993,29,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb6,29,0,12
+1711370503025,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370503042,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370503058,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370503078,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016eda5bd80d7291785587,13,0,0
+1711370503094,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370503112,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370503128,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebb,14,0,0
+1711370503144,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370503161,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370503176,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb0,13,0,0
+1711370503190,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370503206,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370503222,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370503237,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb8,12,0,0
+1711370503251,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370503266,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370503282,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,622,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebe,13,0,0
+1711370503302,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,693,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370503319,12,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,12,0,0
+1711370503333,15,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,624,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeab,15,0,0
+1711370503350,13,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,695,1,1,http://172.167.242.26/logs/update-log,13,0,0
+1711370503365,18,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,18,0,0
+1711370503385,16, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,15,0,0
+1711370503404,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed95bd80d7291785568,13,0,0
+1711370503420,17,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370503439,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370503454,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370503470,11,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,622,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebe,11,0,0
+1711370503484,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,693,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370503499,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370503518,12,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed45bd80d7291785516,12,0,0
+1711370503532,17,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,17,0,0
+1711370503551,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,15,0,0
+1711370503571,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed55bd80d729178551b,14,0,0
+1711370503588,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370503605,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370503622,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370503637,18,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,17,0,0
+1711370503657,17,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,17,0,0
+1711370503678,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,626,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb3,14,0,0
+1711370503695,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,697,1,1,http://172.167.242.26/logs/update-log,16,0,0
+1711370503713,18,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,18,0,0
+1711370503733,22,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,22,0,0
+1711370503757,20, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,18,0,0
+1711370503780,12,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed85bd80d7291785553,12,0,0
+1711370503794,23,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,23,0,0
+1711370503818,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370503835,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,627,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea9,12,0,0
+1711370503849,13,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,698,1,1,http://172.167.242.26/logs/update-log,13,0,0
+1711370503863,21, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,18,0,0
+1711370503887,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed85bd80d729178555a,13,0,0
+1711370503902,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370503918,22, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,15,0,0
+1711370503942,12,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed75bd80d7291785540,12,0,0
+1711370503955,17,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,17,0,0
+1711370503973,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370503994,16,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,914,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66015b1dea8289dee65ab14b,16,0,0
+1711370504012,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1019,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370504027,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,19,0,0
+1711370504050,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edc5bd80d729178559d,14,0,0
+1711370504067,18,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,17,0,0
+1711370504086,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370504106,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edc5bd80d729178559d,13,0,0
+1711370504121,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,13,0,0
+1711370504137,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370504154,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb9,14,0,0
+1711370504171,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,16,0,0
+1711370504191,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,16,0,0
+1711370504209,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,16,0,0
+1711370504228,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370504247,21,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea4,21,0,0
+1711370504271,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370504291,31,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,30,0,0
+1711370504326,39,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea7,39,0,0
+1711370504369,27,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,26,0,0
+1711370504399,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,16,0,0
+1711370504419,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370504438,16,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea7,16,0,0
+1711370504457,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370504475,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370504494,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebd,14,0,0
+1711370504512,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370504530,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370504553,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,889,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66015b1dea8289dee65ab131,13,0,0
+1711370504570,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,994,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370504587,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370504603,20, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370504628,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,1026,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66015b1dea8289dee65ab148,13,0,0
+1711370504644,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1131,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370504662,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,18,0,0
+1711370504686,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edd5bd80d72917855a6,14,0,0
+1711370504704,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370504721,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370504740,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebd,13,0,0
+1711370504757,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370504774,20, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370504799,19,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edc5bd80d729178559d,19,0,0
+1711370504820,37,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,37,0,0
+1711370504858,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16336,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370504877,21,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed65bd80d729178552f,21,0,7
+1711370504900,13,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,13,0,0
+1711370504915,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370504932,24, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,18,0,0
+1711370504962,20,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed55bd80d729178551c,20,0,0
+1711370504985,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370505003,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370505020,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370505039,15,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,622,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeaf,15,0,0
+1711370505059,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,693,1,1,http://172.167.242.26/logs/update-log,16,0,0
+1711370505078,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370505094,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370505112,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,617,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea8,12,0,0
+1711370505128,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,688,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370505148,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370505165,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb9,12,0,0
+1711370505180,13,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,13,0,0
+1711370505195,18, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370505216,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed95bd80d729178556c,13,0,0
+1711370505231,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370505246,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370505262,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,625,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeac,12,0,0
+1711370505276,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,696,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370505293,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370505309,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebb,13,0,0
+1711370505330,52,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,52,0,0
+1711370505384,21,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,21,0,0
+1711370505408,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebb,12,0,0
+1711370505423,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370505439,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370505456,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebd,13,0,0
+1711370505471,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370505488,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,16,0,0
+1711370505506,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370505523,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370505540,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,620,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeae,13,0,0
+1711370505555,13,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,691,1,1,http://172.167.242.26/logs/update-log,13,0,0
+1711370505570,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370505587,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,620,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeae,12,0,0
+1711370505601,13,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,691,1,1,http://172.167.242.26/logs/update-log,13,0,0
+1711370505615,17,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,17,0,0
+1711370505633,16, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,15,0,0
+1711370505652,12,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016eda5bd80d7291785579,12,0,0
+1711370505665,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370505682,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370505704,16,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edb5bd80d7291785592,16,0,0
+1711370505723,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370505741,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370505763,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,907,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66015b1dea8289dee65ab13e,13,0,0
+1711370505780,18,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1012,1,1,http://172.167.242.26/exercise/add-workout-data,18,0,0
+1711370505800,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370505818,26,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,624,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeba,26,0,0
+1711370505848,48,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,695,1,1,http://172.167.242.26/logs/update-log,48,0,0
+1711370505897,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370505911,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea3,12,0,0
+1711370505924,20,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,20,0,0
+1711370505945,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370505960,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,624,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeba,12,0,0
+1711370505974,13,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,695,1,1,http://172.167.242.26/logs/update-log,13,0,0
+1711370505989,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370506005,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370506021,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebb,12,0,0
+1711370506035,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370506050,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370506071,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016eda5bd80d729178557d,14,0,0
+1711370506087,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370506104,17,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,17,0,0
+1711370506123,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,620,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeae,13,0,0
+1711370506138,13,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,691,1,1,http://172.167.242.26/logs/update-log,13,0,0
+1711370506153,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370506169,11,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb1,11,0,0
+1711370506182,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,16,0,0
+1711370506199,12,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,12,0,0
+1711370506213,11,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb2,11,0,0
+1711370506226,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370506241,12,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,12,0,0
+1711370506255,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,620,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeae,13,0,0
+1711370506270,13,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,691,1,1,http://172.167.242.26/logs/update-log,13,0,0
+1711370506284,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,15,0,0
+1711370506304,11,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016eda5bd80d7291785579,11,0,0
+1711370506317,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370506332,42,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,42,0,0
+1711370506377,17,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,622,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeaf,17,0,0
+1711370506396,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,693,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370506411,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370506432,12,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed85bd80d729178555b,12,0,0
+1711370506446,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370506463,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370506478,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebd,13,0,0
+1711370506493,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370506509,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370506524,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,624,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeba,12,0,0
+1711370506539,13,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,695,1,1,http://172.167.242.26/logs/update-log,13,0,0
+1711370506554,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370506571,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370506588,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370506605,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,15,0,0
+1711370506625,86,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed45bd80d7291785515,86,0,0
+1711370506714,19,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,18,0,0
+1711370506735,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2807,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370506752,25,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea3,25,0,9
+1711370506780,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370506797,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370506816,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,625,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea6,13,0,0
+1711370506832,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,696,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370506850,64, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370506917,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed45bd80d7291785517,13,0,0
+1711370506932,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370506948,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370506963,11,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,620,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebf,11,0,0
+1711370506976,13,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,691,1,1,http://172.167.242.26/logs/update-log,13,0,0
+1711370506991,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370507007,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370507023,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,626,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb3,13,0,0
+1711370507038,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,697,1,1,http://172.167.242.26/logs/update-log,16,0,0
+1711370507056,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370507072,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370507087,20, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,20,0,0
+1711370507109,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016eda5bd80d7291785575,14,0,0
+1711370507125,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370507141,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370507158,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,15,0,0
+1711370507178,12,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edd5bd80d72917855af,12,0,0
+1711370507192,17,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,17,0,0
+1711370507211,19,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,19,0,0
+1711370507234,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb1,13,0,0
+1711370507251,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,16,0,0
+1711370507270,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370507289,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb9,14,0,0
+1711370507306,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,16,0,0
+1711370507324,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370507343,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebb,13,0,0
+1711370507360,66,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,66,0,0
+1711370507428,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370507444,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370507460,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370507474,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb2,13,0,0
+1711370507489,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370507505,18, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370507527,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed55bd80d729178551a,14,0,0
+1711370507544,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370507564,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,18,0,0
+1711370507588,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,932,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66015b1dea8289dee65ab133,14,0,0
+1711370507606,23,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1037,1,1,http://172.167.242.26/exercise/add-workout-data,23,0,0
+1711370507635,21,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,21,0,0
+1711370507659,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370507678,20,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb9,20,0,0
+1711370507701,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370507719,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370507736,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370507754,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebc,13,0,0
+1711370507771,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370507789,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370507806,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370507823,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea7,14,0,0
+1711370507840,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370507858,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370507876,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370507896,25,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebb,24,0,0
+1711370507924,18,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,18,0,0
+1711370507946,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370507964,72,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,617,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea8,72,0,0
+1711370508039,20,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,688,1,1,http://172.167.242.26/logs/update-log,20,0,0
+1711370508061,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370508077,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,617,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea8,13,0,0
+1711370508092,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,688,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370508109,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370508126,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,18,0,0
+1711370508150,12,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed85bd80d729178554d,12,0,0
+1711370508166,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370508183,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370508200,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea5,14,0,0
+1711370508216,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370508234,18, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370508256,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed85bd80d7291785555,12,0,0
+1711370508272,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370508291,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,16,0,0
+1711370508311,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370508331,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb2,14,0,0
+1711370508351,22,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,22,0,0
+1711370508377,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370508395,36,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,35,0,0
+1711370508444,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebb,13,0,0
+1711370508459,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370508474,18, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,18,0,0
+1711370508494,12,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed95bd80d729178556a,12,0,0
+1711370508507,24,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,24,0,0
+1711370508532,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,16,0,0
+1711370508549,12,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,12,0,0
+1711370508563,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb9,14,0,0
+1711370508577,53,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,53,0,0
+1711370508631,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370508645,11,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeaa,11,0,0
+1711370508658,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370508674,16, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,14,0,0
+1711370508691,12,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed85bd80d729178554a,12,0,0
+1711370508704,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370508719,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370508734,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,620,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeae,12,0,0
+1711370508750,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,336,691,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370508767,33, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,26,0,8
+1711370508804,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed55bd80d7291785520,14,0,0
+1711370508821,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370508839,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370508857,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,624,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeab,12,0,0
+1711370508872,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,695,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370508892,72,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,72,0,0
+1711370508968,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebc,13,0,0
+1711370508984,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370509001,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370509019,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370509036,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370509057,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed95bd80d729178556c,13,0,0
+1711370509073,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370509091,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370509109,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370509126,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,621,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaea4,13,0,0
+1711370509142,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,692,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370509159,18, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370509182,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed85bd80d729178555e,14,0,0
+1711370509199,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370509217,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370509234,17, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370509255,15,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed75bd80d7291785546,15,0,0
+1711370509273,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370509291,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370509308,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,626,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb3,14,0,0
+1711370509324,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,697,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370509341,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370509357,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370509380,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016eda5bd80d729178557a,13,0,0
+1711370509396,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370509412,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,18,0,0
+1711370509436,12,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed55bd80d7291785522,12,0,0
+1711370509455,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370509472,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370509489,14,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,14,0,0
+1711370509518,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,15,0,0
+1711370509536,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb8,12,0,0
+1711370509551,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370509569,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,19,0,0
+1711370509593,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016eda5bd80d7291785587,13,0,0
+1711370509609,14,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,14,0,0
+1711370509625,18, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370509647,13,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed95bd80d729178556f,13,0,0
+1711370509664,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370509681,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,16,0,0
+1711370509699,18,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,18,0,0
+1711370509723,19, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370509750,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edd5bd80d72917855ad,14,0,0
+1711370509768,15,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,15,0,0
+1711370509786,16,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,16,0,0
+1711370509808,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370509829,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,626,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb3,13,0,0
+1711370509846,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,697,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370509865,18, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,17,0,0
+1711370509889,15,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016edb5bd80d729178558b,15,0,0
+1711370509909,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370509929,14,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370509948,14,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb2,14,0,0
+1711370509966,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370509984,39,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,39,0,0
+1711370510029,15,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,620,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeae,15,0,0
+1711370510051,16,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,691,1,1,http://172.167.242.26/logs/update-log,16,0,0
+1711370510073,15,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,14,0,0
+1711370510096,16,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,623,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaead,16,0,0
+1711370510117,17,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,694,1,1,http://172.167.242.26/logs/update-log,17,0,0
+1711370510139,13,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,13,0,0
+1711370510157,12,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,619,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaeb2,12,0,0
+1711370510177,14,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,690,1,1,http://172.167.242.26/logs/update-log,14,0,0
+1711370510194,12,/logs/get-log-ids,200,OK,Test Thread Group 1-1,text,true,,2812,349,1,1,http://172.167.242.26/logs/get-log-ids,12,0,0
+1711370510212,13,/logs/get-log-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,622,376,1,1,http://172.167.242.26/logs/get-log-by-id/66015b1dea8289dee65aaebe,13,0,0
+1711370510232,15,/logs/update-log,200,OK,Test Thread Group 1-1,text,true,,341,693,1,1,http://172.167.242.26/logs/update-log,15,0,0
+1711370510249,245, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370510506,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed75bd80d729178553e,14,0,0
+1711370510535,17,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,17,0,0
+1711370510559,15,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,15,0,0
+1711370510577,20, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,19,0,0
+1711370510611,14,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,960,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66016ed65bd80d7291785536,14,0,0
+1711370510632,16,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1065,1,1,http://172.167.242.26/exercise/add-workout-data,16,0,0
+1711370510652,18, /exercise/get-workout-ids/pull,200,OK,Test Thread Group 1-1,text,true,,16341,362,1,1,http://172.167.242.26/exercise/get-workout-ids/push,16,0,0
+1711370510689,24,/exercise/get-workout-by-id/:id,200,OK,Test Thread Group 1-1,text,true,,957,384,1,1,http://172.167.242.26/exercise/get-workout-by-id/66015b1dea8289dee65ab145,24,0,0
+1711370510725,17,/exercise/add-workout-data,200,OK,Test Thread Group 1-1,text,true,,311,1062,1,1,http://172.167.242.26/exercise/add-workout-data,17,0,0
+1711370510752,22,/exercise/update-workouts,200,OK,Test Thread Group 1-1,text,true,,530,454,1,1,http://172.167.242.26/exercise/update-workouts,22,0,0
+1711370510779,8,/exercise/update-workouts,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Test Thread Group 1-1,text,false,,2556,0,1,1,http://172.167.242.26/exercise/update-workouts,0,0,0
