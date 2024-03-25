@@ -20,7 +20,7 @@ import string
 # args = parser.parse_args()
 
 #DATA TO REMEMBER so each run of this file pushes same data to the database
-index = 0
+index = 1
 all_data = {
     "habits_data": [],
     "logs_data": [],
@@ -40,10 +40,9 @@ except (FileNotFoundError, json.JSONDecodeError):
 
 
 
-#connect to the mongo database
-urlLogs = ["mongodb://nirmaladmin:MongoPass763!@51.143.220.27:27017/", ""]
-urlExercise = ["mongodb://nirmaladmin:MongoPass763!@51.143.220.27:27017/", ""]
-urlNotifications = ["mongodb://nirmaladmin:MongoPass763!@51.143.220.27:27017/", ""]
+urlExercise = ["mongodb://nirmaladmin:MongoPass763!@51.143.220.27:27017/", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverless-exercise.7qnsfve.mongodb.net/?retryWrites=true&w=majority&appName=serverless-exercise"]
+urlLogs = ["mongodb://nirmaladmin:MongoPass763!@51.143.220.27:27017/", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverless-logs.vbsuzds.mongodb.net/?retryWrites=true&w=majority&appName=serverless-logs"]
+urlNotifications = ["mongodb://nirmaladmin:MongoPass763!@51.143.220.27:27017/", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverlessmongoinstance.y8pgp8j.mongodb.net/?retryWrites=true&w=majority&appName=ServerlessmongoInstance0"]
 urlDashboard = ["mongodb://nirmaladmin:MongoPass763!@51.143.220.27:27017/", ""]
 
 # Load the jwt tokens from the users. And retrieve the user ID.
@@ -264,7 +263,7 @@ upload_user_logs_data(user_ids, habits, dates)
 upload_user_workout_types_data(user_ids, workout_values)
 upload_workout_data(user_ids, workout_values)
 upload_user_notifications_data(user_ids)
-write_all(all_data)
+# write_all(all_data)
 
 
 
