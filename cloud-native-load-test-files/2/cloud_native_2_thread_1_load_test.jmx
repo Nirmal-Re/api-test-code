@@ -12,7 +12,7 @@
       <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config">
         <stringProp name="delimiter">,</stringProp>
         <stringProp name="fileEncoding"></stringProp>
-        <stringProp name="filename">C:/Users/royal/Desktop/API Test/seed-data/users.csv</stringProp>
+        <stringProp name="filename">users.csv</stringProp>
         <boolProp name="ignoreFirstLine">true</boolProp>
         <boolProp name="quotedData">false</boolProp>
         <boolProp name="recycle">true</boolProp>
@@ -33,7 +33,7 @@ log.info(&quot;Cookie added: &quot; + cookieValue.toString())
 
 // Initialize the variables
 String cookieName = &quot;access_token&quot;; // The name of your cookie
-String domain = &quot;172.167.242.26&quot;; // The domain where the cookie is valid
+List&lt;String&gt; domains = [&quot;logs.lemoncliff-7145084d.uksouth.azurecontainerapps.io&quot;, &quot;notifications.icywave-b4b9df4d.uksouth.azurecontainerapps.io&quot;, &quot;dashboard.calmsand-d7672936.uksouth.azurecontainerapps.io&quot;, &quot;exercise.ambitiouscoast-3518c517.uksouth.azurecontainerapps.io&quot;]; // The domains where the cookie is valid
 String path = &quot;/&quot;; // The path where the cookie is valid
 long maxAge = 60 * 60 * 24;  // 1 day in seconds
 boolean secure = false; // Whether or not this cookie requires a secure connection
@@ -51,8 +51,11 @@ for (int i = 0; i &lt; cookies.size(); i++) {
 }
 
 // Add the new cookie
-Cookie newCookie = new Cookie(cookieName, cookieValue, domain, path, secure, System.currentTimeMillis() + (maxAge * 1000));
-cookieManager.add(newCookie);</stringProp>
+for (String domain : domains) {
+	Cookie newCookie = new Cookie(cookieName, cookieValue, domain, path, secure, System.currentTimeMillis() + (maxAge * 1000));
+	cookieManager.add(newCookie);
+}
+</stringProp>
         <stringProp name="scriptLanguage">groovy</stringProp>
       </JSR223PreProcessor>
       <hashTree/>
@@ -71,7 +74,7 @@ cookieManager.add(newCookie);</stringProp>
         <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
       </CookieManager>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Test Thread Group">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Test Thread Group" enabled="true">
         <intProp name="ThreadGroup.num_threads">1</intProp>
         <intProp name="ThreadGroup.ramp_time">1</intProp>
         <longProp name="ThreadGroup.duration">240</longProp>
@@ -85,7 +88,7 @@ cookieManager.add(newCookie);</stringProp>
       </ThreadGroup>
       <hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="auth/register" enabled="false">
-          <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+          <stringProp name="HTTPSampler.domain">51.143.153.1</stringProp>
           <stringProp name="HTTPSampler.port">80</stringProp>
           <stringProp name="HTTPSampler.path">/auth/register</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -119,7 +122,7 @@ cookieManager.add(newCookie);</stringProp>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="auth/login" enabled="false">
-          <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+          <stringProp name="HTTPSampler.domain">51.143.153.1</stringProp>
           <stringProp name="HTTPSampler.port">80</stringProp>
           <stringProp name="HTTPSampler.path">/auth/login</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -166,19 +169,19 @@ cookieManager.add(newCookie);</stringProp>
           <intProp name="ThroughputController.maxThroughput">1000</intProp>
           <FloatProperty>
             <name>ThroughputController.percentThroughput</name>
-            <value>0.0</value>
+            <value>98.0</value>
             <savedValue>0.0</savedValue>
           </FloatProperty>
         </ThroughputController>
         <hashTree>
-          <RandomController guiclass="RandomControlGui" testclass="RandomController" testname="Random Controller">
+          <RandomController guiclass="RandomControlGui" testclass="RandomController" testname="Random Controller" enabled="true">
             <intProp name="InterleaveControl.style">1</intProp>
           </RandomController>
           <hashTree>
             <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Logs Simple Controller" enabled="true"/>
             <hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/get-log-ids" enabled="true">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+                <stringProp name="HTTPSampler.domain">logs.lemoncliff-7145084d.uksouth.azurecontainerapps.io</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
                 <stringProp name="HTTPSampler.path">/logs/get-log-ids</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -223,7 +226,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
                 <hashTree/>
               </hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/get-log-by-id/:id" enabled="true">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+                <stringProp name="HTTPSampler.domain">logs.lemoncliff-7145084d.uksouth.azurecontainerapps.io</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
                 <stringProp name="HTTPSampler.path">/logs/get-log-by-id/${randomIDValue}</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -239,7 +242,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
             <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Exercise Simple Controller" enabled="true"/>
             <hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /exercise/get-workout-ids/pull" enabled="true">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+                <stringProp name="HTTPSampler.domain">exercise.ambitiouscoast-3518c517.uksouth.azurecontainerapps.io</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
                 <stringProp name="HTTPSampler.path">/exercise/get-workout-ids/pull</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -284,7 +287,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
                 <hashTree/>
               </hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/get-workout-by-id/:id" enabled="true">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+                <stringProp name="HTTPSampler.domain">exercise.ambitiouscoast-3518c517.uksouth.azurecontainerapps.io</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
                 <stringProp name="HTTPSampler.path">/exercise/get-workout-by-id/${randomIDValue}</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -298,7 +301,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
               <hashTree/>
             </hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/fetch-all-habits" enabled="true">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+              <stringProp name="HTTPSampler.domain">logs.lemoncliff-7145084d.uksouth.azurecontainerapps.io</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/logs/fetch-all-habits</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -311,7 +314,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /logs/get-daily-log" enabled="true">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+              <stringProp name="HTTPSampler.domain">logs.lemoncliff-7145084d.uksouth.azurecontainerapps.io</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/logs/get-daily-log</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -324,7 +327,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/dashboard/get-user-report-data" enabled="true">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+              <stringProp name="HTTPSampler.domain">dashboard.calmsand-d7672936.uksouth.azurecontainerapps.io</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/dashboard/get-user-report-data</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -336,8 +339,8 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
                   <elementProp name="" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.value">{&#xd;
-    &quot;start&quot;: &quot;2024-01-16&quot;,&#xd;
-    &quot;end&quot;:&quot;2024-02-16&quot;&#xd;
+    &quot;start&quot;: &quot;2024-01-01&quot;,&#xd;
+    &quot;end&quot;:&quot;2025-01-01&quot;&#xd;
 }</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
@@ -346,7 +349,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /dashboard/get-workout-historic-data" enabled="true">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+              <stringProp name="HTTPSampler.domain">dashboard.calmsand-d7672936.uksouth.azurecontainerapps.io</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/dashboard/get-workout-historic-data</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -358,8 +361,8 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
                   <elementProp name="" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.value">{&#xd;
-    &quot;start&quot;: &quot;2024-01-16&quot;,&#xd;
-    &quot;end&quot;:&quot;2024-02-16&quot;&#xd;
+    &quot;start&quot;: &quot;2024-01-01&quot;,&#xd;
+    &quot;end&quot;:&quot;2025-01-01&quot;&#xd;
 }</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
@@ -368,7 +371,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /notifications/get-notifications" enabled="true">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+              <stringProp name="HTTPSampler.domain">notifications.icywave-b4b9df4d.uksouth.azurecontainerapps.io</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/notifications/get-notifications</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -381,7 +384,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/get-workouts" enabled="true">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+              <stringProp name="HTTPSampler.domain">exercise.ambitiouscoast-3518c517.uksouth.azurecontainerapps.io</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/exercise/get-workouts</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -401,7 +404,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
           <intProp name="ThroughputController.maxThroughput">1</intProp>
           <FloatProperty>
             <name>ThroughputController.percentThroughput</name>
-            <value>0.0</value>
+            <value>1.0</value>
             <savedValue>0.0</savedValue>
           </FloatProperty>
         </ThroughputController>
@@ -411,7 +414,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
           </RandomController>
           <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/update-workouts" enabled="true">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+              <stringProp name="HTTPSampler.domain">exercise.ambitiouscoast-3518c517.uksouth.azurecontainerapps.io</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/exercise/update-workouts</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -432,7 +435,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/add-workout-data" enabled="true">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+              <stringProp name="HTTPSampler.domain">exercise.ambitiouscoast-3518c517.uksouth.azurecontainerapps.io</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/exercise/add-workout-data</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -549,7 +552,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /logs/add-new-habits" enabled="true">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+              <stringProp name="HTTPSampler.domain">logs.lemoncliff-7145084d.uksouth.azurecontainerapps.io</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/logs/add-new-habits</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -577,7 +580,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
           <intProp name="ThroughputController.maxThroughput">1</intProp>
           <FloatProperty>
             <name>ThroughputController.percentThroughput</name>
-            <value>100.0</value>
+            <value>1.0</value>
             <savedValue>0.0</savedValue>
           </FloatProperty>
         </ThroughputController>
@@ -587,7 +590,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
           </RandomController>
           <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/update-workouts" enabled="true">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+              <stringProp name="HTTPSampler.domain">exercise.ambitiouscoast-3518c517.uksouth.azurecontainerapps.io</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/exercise/update-workouts</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -610,7 +613,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
             <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Logs Simple Controller" enabled="true"/>
             <hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/get-log-ids" enabled="true">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+                <stringProp name="HTTPSampler.domain">logs.lemoncliff-7145084d.uksouth.azurecontainerapps.io</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
                 <stringProp name="HTTPSampler.path">/logs/get-log-ids</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -655,7 +658,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
                 <hashTree/>
               </hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/get-log-by-id/:id" enabled="true">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+                <stringProp name="HTTPSampler.domain">logs.lemoncliff-7145084d.uksouth.azurecontainerapps.io</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
                 <stringProp name="HTTPSampler.path">/logs/get-log-by-id/${randomIDValue}</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -683,7 +686,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
                 <hashTree/>
               </hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/update-log" enabled="true">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+                <stringProp name="HTTPSampler.domain">logs.lemoncliff-7145084d.uksouth.azurecontainerapps.io</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
                 <stringProp name="HTTPSampler.path">/logs/update-log</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -705,7 +708,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
             <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Exercise Simple Controller" enabled="true"/>
             <hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /exercise/get-workout-ids/pull" enabled="true">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+                <stringProp name="HTTPSampler.domain">exercise.ambitiouscoast-3518c517.uksouth.azurecontainerapps.io</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
                 <stringProp name="HTTPSampler.path">/exercise/get-workout-ids/push</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -750,7 +753,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
                 <hashTree/>
               </hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/get-workout-by-id/:id" enabled="true">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+                <stringProp name="HTTPSampler.domain">exercise.ambitiouscoast-3518c517.uksouth.azurecontainerapps.io</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
                 <stringProp name="HTTPSampler.path">/exercise/get-workout-by-id/${randomIDValue}</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -778,7 +781,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
                 <hashTree/>
               </hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/add-workout-data" enabled="true">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+                <stringProp name="HTTPSampler.domain">exercise.ambitiouscoast-3518c517.uksouth.azurecontainerapps.io</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
                 <stringProp name="HTTPSampler.path">/exercise/add-workout-data</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -839,7 +842,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
         <stringProp name="filename">C:\Users\royal\Desktop\API Test\secondResponse.csv</stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -876,7 +879,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
         <stringProp name="filename">C:\Users\royal\Desktop\API Test\summary.csv</stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>

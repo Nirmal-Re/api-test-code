@@ -6,7 +6,7 @@ from pymongo import MongoClient
 import random
 from bson.objectid import ObjectId
 import string
-
+import redis
 
 # Get today's date
 #TODO: ALLOW TH USER TO SPECIFY IF THE APP IS MONOLITHIC OR NOT FROM THE COMMAND LINE RATHER THAN STACTICALLY DEFINING IT HERE.
@@ -40,9 +40,9 @@ except (FileNotFoundError, json.JSONDecodeError):
 
 
 
-urlExercise = ["mongodb://nirmaladmin:MongoPass763!@51.143.220.27:27017/", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverless-exercise.7qnsfve.mongodb.net/?retryWrites=true&w=majority&appName=serverless-exercise"]
-urlLogs = ["mongodb://nirmaladmin:MongoPass763!@51.143.220.27:27017/", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverless-logs.vbsuzds.mongodb.net/?retryWrites=true&w=majority&appName=serverless-logs"]
-urlNotifications = ["mongodb://nirmaladmin:MongoPass763!@51.143.220.27:27017/", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverlessmongoinstance.y8pgp8j.mongodb.net/?retryWrites=true&w=majority&appName=ServerlessmongoInstance0"]
+urlExercise = ["mongodb://nirmaladmin:MongoPass763!@51.143.220.27:27017/", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverless-exercise-db.zd3glcg.mongodb.net/?retryWrites=true&w=majority&appName=serverless-exercise-db"]
+urlLogs = ["mongodb://nirmaladmin:MongoPass763!@51.143.220.27:27017/", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverless-logs-db.hjz2hld.mongodb.net/?retryWrites=true&w=majority&appName=serverless-logs-db"]
+urlNotifications = ["mongodb://nirmaladmin:MongoPass763!@51.143.220.27:27017/", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverless-notification.0acfha9.mongodb.net/?retryWrites=true&w=majority&appName=serverless-notification-db"]
 urlDashboard = ["mongodb://nirmaladmin:MongoPass763!@51.143.220.27:27017/", ""]
 
 # Load the jwt tokens from the users. And retrieve the user ID.
@@ -258,14 +258,6 @@ def write_all(all_data):
         f.write(JSONEncoder().encode(all_data))
 
 
-upload_user_habit_data(user_ids, habits)
-upload_user_logs_data(user_ids, habits, dates)
-upload_user_workout_types_data(user_ids, workout_values)
-upload_workout_data(user_ids, workout_values)
-upload_user_notifications_data(user_ids)
-# write_all(all_data)
-
-
 
 
 #To Delete all the data
@@ -275,10 +267,39 @@ def delete_all(url, coll_name):
     collection = db[coll_name]
     collection.delete_many({})
 
-# delete_all(urlLogs[index], "coll_user_habits")
-# delete_all(urlLogs[index], "coll_logs")
-# delete_all(urlExercise[index], "coll_user_workout_types")
-# delete_all(urlExercise[index], "coll_workout_data")
-# delete_all(urlNotifications[index], "coll_notifications")
+def flush_redis():
+    r = redis.Redis(
+    host='nirmal-redis.redis.cache.windows.net',
+    port=6379, 
+    password='1NGaFCIxpfOkv3wp1eJckZl50LeiO9JqnAzCaFW5CxI='  # If your Redis server requires a password    
+    )
+    print("Keys in redis")
+    print(r.keys("*"))
+    r.flushall()
+    print("Keys in redis after flushing")
+    print(r.keys("*"))
 
-# delete_all_redis()
+
+def delete_data_in_databases():
+    delete_all(urlLogs[index], "coll_user_habits")
+    delete_all(urlLogs[index], "coll_logs")
+    delete_all(urlExercise[index], "coll_user_workout_types")
+    delete_all(urlExercise[index], "coll_workout_data")
+    delete_all(urlNotifications[index], "coll_notifications")
+    
+    flush_redis()
+
+def set_databases():
+    upload_user_habit_data(user_ids, habits)
+    upload_user_logs_data(user_ids, habits, dates)
+    upload_user_workout_types_data(user_ids, workout_values)
+    upload_workout_data(user_ids, workout_values)
+    upload_user_notifications_data(user_ids)
+
+# write_all(all_data)
+
+def reset_databases():
+    delete_data_in_databases()
+    set_databases()
+
+reset_databases()
