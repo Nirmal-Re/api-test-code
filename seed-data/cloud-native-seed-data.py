@@ -269,9 +269,9 @@ def delete_all(url, coll_name):
 
 def flush_redis():
     r = redis.Redis(
-    host='red-is-cache.redis.cache.windows.net',
+    host='nirmal-redis-22.redis.cache.windows.net',
     port=6379, 
-    password='A2AuibZdPOdHDBFEbETkVg3tc0qdEUegdAzCaPITtJ4='  # If your Redis server requires a password    
+    password='vDVQXV6K4m4kPlU4avG36tH4mCMcdDO4pAzCaIyU6U8='  # If your Redis server requires a password    
     )
     print("Keys in redis")
     print(r.keys("*"))
