@@ -33,7 +33,7 @@ log.info(&quot;Cookie added: &quot; + cookieValue.toString())
 
 // Initialize the variables
 String cookieName = &quot;access_token&quot;; // The name of your cookie
-List&lt;String&gt; domains = [&quot;logs.lemoncliff-7145084d.uksouth.azurecontainerapps.io&quot;, &quot;notifications.icywave-b4b9df4d.uksouth.azurecontainerapps.io&quot;, &quot;dashboard.calmsand-d7672936.uksouth.azurecontainerapps.io&quot;, &quot;exercise.ambitiouscoast-3518c517.uksouth.azurecontainerapps.io&quot;]; // The domains where the cookie is valid
+List&lt;String&gt; domains = [&quot;51.145.32.174&quot;]; // The domains where the cookie is valid
 String path = &quot;/&quot;; // The path where the cookie is valid
 long maxAge = 60 * 60 * 24;  // 1 day in seconds
 boolean secure = false; // Whether or not this cookie requires a secure connection
@@ -75,7 +75,7 @@ for (String domain : domains) {
       </CookieManager>
       <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Test Thread Group" enabled="true">
-        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.num_threads">16</intProp>
         <intProp name="ThreadGroup.ramp_time">1</intProp>
         <longProp name="ThreadGroup.duration">240</longProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>

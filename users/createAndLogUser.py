@@ -35,9 +35,9 @@ fake = faker.Faker()
 header = ['email', 'password', 'lastName', 'firstName', 'cookie']
 
 # URL for registration and login
-host = 'http://172.167.242.26'
-register_url = f'{host}/auth/register'
-login_url = f'{host}/auth/login'
+host = 'http://20.117.180.102'
+register_url = f'{host}/users/auth/register'
+login_url = f'{host}/users/auth/login'
 headers = {'Content-Type': 'application/json'}
 
 

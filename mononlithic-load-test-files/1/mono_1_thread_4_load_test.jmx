@@ -31,7 +31,7 @@ log.info(&quot;Cookie added: &quot; + cookieValue.toString())
 
 // Initialize the variables
 String cookieName = &quot;access_token&quot;; // The name of your cookie
-String domain = &quot;172.167.242.26&quot;; // The domain where the cookie is valid
+String domain = &quot;20.117.180.102&quot;; // The domain where the cookie is valid
 String path = &quot;/&quot;; // The path where the cookie is valid
 long maxAge = 60 * 60 * 24;  // 1 day in seconds
 boolean secure = false; // Whether or not this cookie requires a secure connection
@@ -83,7 +83,7 @@ cookieManager.add(newCookie);</stringProp>
       </ThreadGroup>
       <hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="auth/register" enabled="false">
-          <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+          <stringProp name="HTTPSampler.domain">20.117.180.102</stringProp>
           <stringProp name="HTTPSampler.port">3000</stringProp>
           <stringProp name="HTTPSampler.path">/auth/register</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -117,7 +117,7 @@ cookieManager.add(newCookie);</stringProp>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="auth/login" enabled="false">
-          <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+          <stringProp name="HTTPSampler.domain">20.117.180.102</stringProp>
           <stringProp name="HTTPSampler.port">3000</stringProp>
           <stringProp name="HTTPSampler.path">/auth/login</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -176,7 +176,7 @@ cookieManager.add(newCookie);</stringProp>
             <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Logs Simple Controller" enabled="true"/>
             <hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/get-log-ids" enabled="true">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+                <stringProp name="HTTPSampler.domain">20.117.180.102</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
                 <stringProp name="HTTPSampler.path">/logs/get-log-ids</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -221,7 +221,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
                 <hashTree/>
               </hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/get-log-by-id/:id" enabled="true">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+                <stringProp name="HTTPSampler.domain">20.117.180.102</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
                 <stringProp name="HTTPSampler.path">/logs/get-log-by-id/${randomIDValue}</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -237,7 +237,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
             <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Exercise Simple Controller" enabled="true"/>
             <hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /exercise/get-workout-ids/pull" enabled="true">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+                <stringProp name="HTTPSampler.domain">20.117.180.102</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
                 <stringProp name="HTTPSampler.path">/exercise/get-workout-ids/pull</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -282,7 +282,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
                 <hashTree/>
               </hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/get-workout-by-id/:id" enabled="true">
-                <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+                <stringProp name="HTTPSampler.domain">20.117.180.102</stringProp>
                 <stringProp name="HTTPSampler.port">80</stringProp>
                 <stringProp name="HTTPSampler.path">/exercise/get-workout-by-id/${randomIDValue}</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -296,7 +296,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
               <hashTree/>
             </hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/fetch-all-habits" enabled="true">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+              <stringProp name="HTTPSampler.domain">20.117.180.102</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/logs/fetch-all-habits</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -309,7 +309,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /logs/get-daily-log" enabled="true">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+              <stringProp name="HTTPSampler.domain">20.117.180.102</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/logs/get-daily-log</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -322,7 +322,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/dashboard/get-user-report-data" enabled="true">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+              <stringProp name="HTTPSampler.domain">20.117.180.102</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/dashboard/get-user-report-data</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -344,7 +344,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /dashboard/get-workout-historic-data" enabled="true">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+              <stringProp name="HTTPSampler.domain">20.117.180.102</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/dashboard/get-workout-historic-data</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -366,7 +366,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /notifications/get-notifications" enabled="true">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+              <stringProp name="HTTPSampler.domain">20.117.180.102</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/notifications/get-notifications</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -379,7 +379,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/get-workouts" enabled="true">
-              <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+              <stringProp name="HTTPSampler.domain">20.117.180.102</stringProp>
               <stringProp name="HTTPSampler.port">80</stringProp>
               <stringProp name="HTTPSampler.path">/exercise/get-workouts</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -405,7 +405,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
         </ThroughputController>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/update-workouts" enabled="true">
-            <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+            <stringProp name="HTTPSampler.domain">20.117.180.102</stringProp>
             <stringProp name="HTTPSampler.port">3000</stringProp>
             <stringProp name="HTTPSampler.path">/exercise/update-workouts</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -426,7 +426,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/add-workout-data [Need to Add DATA]" enabled="true">
-            <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+            <stringProp name="HTTPSampler.domain">20.117.180.102</stringProp>
             <stringProp name="HTTPSampler.port">80</stringProp>
             <stringProp name="HTTPSampler.path">/exercise/add-workout-data</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -447,7 +447,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" /logs/add-new-habits" enabled="true">
-            <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+            <stringProp name="HTTPSampler.domain">20.117.180.102</stringProp>
             <stringProp name="HTTPSampler.port">80</stringProp>
             <stringProp name="HTTPSampler.path"> /logs/add-new-habits</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -482,7 +482,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
         </ThroughputController>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/update-workouts" enabled="true">
-            <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+            <stringProp name="HTTPSampler.domain">20.117.180.102</stringProp>
             <stringProp name="HTTPSampler.port">3000</stringProp>
             <stringProp name="HTTPSampler.path">/exercise/update-workouts</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -503,7 +503,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/exercise/add-workout-data [Need to Add DATA]" enabled="true">
-            <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+            <stringProp name="HTTPSampler.domain">20.117.180.102</stringProp>
             <stringProp name="HTTPSampler.port">80</stringProp>
             <stringProp name="HTTPSampler.path">/exercise/add-workout-data</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -524,7 +524,7 @@ vars.put(&quot;randomIDValue&quot;, randomIDValue)</stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/logs/update-log [Need to add DATA]" enabled="true">
-            <stringProp name="HTTPSampler.domain">172.167.242.26</stringProp>
+            <stringProp name="HTTPSampler.domain">20.117.180.102</stringProp>
             <stringProp name="HTTPSampler.port">80</stringProp>
             <stringProp name="HTTPSampler.path">/logs/update-log</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
