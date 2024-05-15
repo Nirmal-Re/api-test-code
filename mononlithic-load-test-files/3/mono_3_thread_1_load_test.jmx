@@ -33,9 +33,7 @@ log.info(&quot;Cookie added: &quot; + cookieValue.toString())
 
 // Initialize the variables
 String cookieName = &quot;access_token&quot;; // The name of your cookie
-List&lt;String&gt; domains = [&quot;20.117.180.102
-
-&quot;]; // The domains where the cookie is valid
+List&lt;String&gt; domains = [&quot;20.117.180.102&quot;]; // The domains where the cookie is valid
 String path = &quot;/&quot;; // The path where the cookie is valid
 long maxAge = 60 * 60 * 24;  // 1 day in seconds
 boolean secure = false; // Whether or not this cookie requires a secure connection

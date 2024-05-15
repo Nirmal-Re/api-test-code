@@ -40,14 +40,14 @@ except (FileNotFoundError, json.JSONDecodeError):
 
 
 
-urlExercise = ["mongodb+srv://bhdnirmal99:NXSepW4PFBg0WGJV@monolithic-mongo-db.nefb23m.mongodb.net/?retryWrites=true&w=majority&appName=monolithic-mongo-db", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverless-exercise-db.zd3glcg.mongodb.net/?retryWrites=true&w=majority&appName=serverless-exercise-db"]
-urlLogs = ["mongodb+srv://bhdnirmal99:NXSepW4PFBg0WGJV@monolithic-mongo-db.nefb23m.mongodb.net/?retryWrites=true&w=majority&appName=monolithic-mongo-db", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverless-logs-db.hjz2hld.mongodb.net/?retryWrites=true&w=majority&appName=serverless-logs-db"]
-urlNotifications = ["mongodb+srv://bhdnirmal99:NXSepW4PFBg0WGJV@monolithic-mongo-db.nefb23m.mongodb.net/?retryWrites=true&w=majority&appName=monolithic-mongo-db", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverless-notification.0acfha9.mongodb.net/?retryWrites=true&w=majority&appName=serverless-notification-db"]
+urlExercise = ["mongodb://localhost:27017", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverless-exercise-db.zd3glcg.mongodb.net/?retryWrites=true&w=majority&appName=serverless-exercise-db"]
+urlLogs = ["mongodb://localhost:27017", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverless-logs-db.hjz2hld.mongodb.net/?retryWrites=true&w=majority&appName=serverless-logs-db"]
+urlNotifications = ["mongodb://localhost:27017", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverless-notification.0acfha9.mongodb.net/?retryWrites=true&w=majority&appName=serverless-notification-db"]
 urlDashboard = ["", ""]
 
 # Load the jwt tokens from the users. And retrieve the user ID.
 micro = False
-df = pd.read_csv('users.csv')
+df = pd.read_csv('users-demo.csv')
 user_ids = []
 today = datetime.now()
 dates = [(today - timedelta(days=i)) for i in range(30)]

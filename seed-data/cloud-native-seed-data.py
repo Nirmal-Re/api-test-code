@@ -274,6 +274,7 @@ def flush_redis():
     password='vDVQXV6K4m4kPlU4avG36tH4mCMcdDO4pAzCaIyU6U8='  # If your Redis server requires a password    
     )
     print("Keys in redis")
+    print(len(r.keys("*")))
     print(r.keys("*"))
     r.flushall()
     print("Keys in redis after flushing")
