@@ -40,9 +40,9 @@ except (FileNotFoundError, json.JSONDecodeError):
 
 
 
-urlExercise = ["mongodb+srv://bhdnirmal99:NXSepW4PFBg0WGJV@monolithic-mongo-0.h15voqw.mongodb.net/?retryWrites=true&w=majority&appName=monolithic-mongo-0", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverless-exercise-db.zd3glcg.mongodb.net/?retryWrites=true&w=majority&appName=serverless-exercise-db"]
-urlLogs = ["mongodb+srv://bhdnirmal99:NXSepW4PFBg0WGJV@monolithic-mongo-0.h15voqw.mongodb.net/?retryWrites=true&w=majority&appName=monolithic-mongo-0", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverless-logs-db.hjz2hld.mongodb.net/?retryWrites=true&w=majority&appName=serverless-logs-db"]
-urlNotifications = ["mongodb+srv://bhdnirmal99:NXSepW4PFBg0WGJV@monolithic-mongo-0.h15voqw.mongodb.net/?retryWrites=true&w=majority&appName=monolithic-mongo-0", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverless-notification.0acfha9.mongodb.net/?retryWrites=true&w=majority&appName=serverless-notification-db"]
+urlExercise = ["mongodb+srv://@monolithic-mongo-0.h15voqw.motrue&w=majority&appName=monolithic-mongo-0", "mongodb+srv://@serverless-exercise-db.zd3glcg.mongoue&w=majority&appName=serverless-exercise-db"]
+urlLogs = ["mongodb+srv://@monolithic-mongo-0.h15voqw.mongodb.net/?re&appName=monolithic-mongo-0", "mongodb+srv://@serverless-logs-db.hjz2hld.mongodb.net/?retryWrites=&appName=serverless-logs-db"]
+urlNotifications = ["mongodb+srv://@monolithic-mongo-0.h15voqw.mongow=majority&appName=monolithic-mongo-0", "mongodb+srv:/@serverless-notification.0acfhtrue&w=majority&appName=serverless-notification-db"]
 urlDashboard = ["", ""]
 
 # Load the jwt tokens from the users. And retrieve the user ID.
