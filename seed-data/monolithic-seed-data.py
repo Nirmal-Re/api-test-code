@@ -40,9 +40,9 @@ except (FileNotFoundError, json.JSONDecodeError):
 
 
 
-urlExercise = ["mongodb://localhost:27017", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverless-exercise-db.zd3glcg.mongodb.net/?retryWrites=true&w=majority&appName=serverless-exercise-db"]
-urlLogs = ["mongodb://localhost:27017", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverless-logs-db.hjz2hld.mongodb.net/?retryWrites=true&w=majority&appName=serverless-logs-db"]
-urlNotifications = ["mongodb://localhost:27017", "mongodb+srv://bhdnirmal99:zfNQDY7JYLgQhjp9@serverless-notification.0acfha9.mongodb.net/?retryWrites=true&w=majority&appName=serverless-notification-db"]
+urlExercise = ["mongodb://localhost:27017", "mongodb+srv://@serverless-exerngodb.net/?retryWrites=true&w=majority&appName=serverless-exercise-db"]
+urlLogs = ["mongodb://localhost:27017", "mongodb+srv://@serverless-logs-dbet/?retryWrites=true&w=majority&appName=serverless-logs-db"]
+urlNotifications = ["mongodb://localhost:27017", "mongodb+srv://@serverless-notificb.net/?retryWrites=true&w=majority&appName=serverless-notification-db"]
 urlDashboard = ["", ""]
 
 # Load the jwt tokens from the users. And retrieve the user ID.
